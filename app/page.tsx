@@ -13,7 +13,7 @@ import { BUSINESS } from '@/content/business';
 export default function HomePage() {
   return (
     <>
-      <Hero posterSrc="/placeholders/hero-roofline.svg" />
+      <Hero posterSrc="/images/hero-roofline.webp" />
 
       {/* Section 2: Audience fork (secondary, lower-page reinforcement of the hero's own fork) */}
       <section className="mx-auto max-w-7xl px-4 py-16 grid gap-6 sm:grid-cols-2">
