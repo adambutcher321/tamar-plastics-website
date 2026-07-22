@@ -54,6 +54,14 @@ body {
   background-color: #FFFFFF;
 }
 
+/* "Archivo Expanded" isn't a distinct Google Fonts family — Archivo is a
+   variable font whose width axis (wdth, 62-125) covers the expanded look
+   the brand spec calls for. font-stretch is the standard CSS property
+   that maps to a variable font's wdth axis in evergreen browsers. */
+.font-display {
+  font-stretch: 125%;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-tamar-orange);
   outline-offset: 2px;
