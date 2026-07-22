@@ -1,65 +1,118 @@
-import Image from "next/image";
+import { Hero } from '@/components/marketing/Hero';
+import { AudienceForkCard } from '@/components/marketing/AudienceForkCard';
+import { ProofBand } from '@/components/marketing/ProofBand';
+import { ReviewCard } from '@/components/marketing/ReviewCard';
+import { CounterStatus } from '@/components/marketing/CounterStatus';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { PRODUCT_CATEGORIES } from '@/content/product-categories';
+import { PLACEHOLDER_REVIEWS } from '@/content/reviews';
+import { BUSINESS } from '@/content/business';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Hero posterSrc="/placeholders/hero-roofline.svg" />
+
+      {/* Section 2: Audience fork (secondary, lower-page reinforcement of the hero's own fork) */}
+      <section className="mx-auto max-w-7xl px-4 py-16 grid gap-6 sm:grid-cols-2">
+        <AudienceForkCard
+          variant="trade"
+          title="Buying for a job?"
+          description="Open a trade account, check stock and collect from the counter in Saltash."
+          href="/trade/"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <AudienceForkCard
+          variant="home"
+          title="Improving your home?"
+          description="Book a free survey for windows, doors or roofline, supplied and fitted."
+          href="/home-improvements/"
+        />
+      </section>
+
+      {/* Section 3: Product grid */}
+      <section className="bg-ink-050 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="font-display font-bold text-2xl text-tamar-black mb-8">What we stock and fit</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {PRODUCT_CATEGORIES.map((category) => (
+              <a
+                key={category.slug}
+                href={category.href}
+                className="min-h-[44px] block bg-white border border-ink-200 rounded-sm p-4 hover:border-tamar-orange"
+              >
+                <h3 className="font-body font-semibold text-base text-tamar-black">{category.name}</h3>
+                <p className="text-sm text-ink-600 mt-1">{category.blurb}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Split proof band */}
+      <section className="mx-auto max-w-7xl px-4 py-16">
+        <ProofBand
+          tradeStats={[
+            { label: 'Delivery radius', value: '25 MI FROM SALTASH' },
+            { label: 'Counter hours', value: 'MON–FRI 08:00–17:00' },
+            { label: 'Collection', value: 'SAME DAY, IN-STOCK LINES' },
+          ]}
+          homeownerStats={[
+            { label: 'Established as', value: 'CARLTON PLASTICS' },
+            { label: 'Free survey', value: 'ACROSS CORNWALL & PLYMOUTH' },
+            { label: 'Same number', value: '01752 841234' },
+          ]}
+        />
+      </section>
+
+      {/* Section 5: Recent local work (placeholder — full projects gallery is Phase 2) */}
+      <section className="bg-ink-050 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="font-display font-bold text-2xl text-tamar-black mb-2">Recent local work</h2>
+          <p className="text-base text-ink-600 mb-8">
+            A full project gallery is coming soon. Ask the counter or your surveyor about work near you.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Section 6: The Carlton story */}
+      <section className="mx-auto max-w-7xl px-4 py-16 max-w-3xl">
+        <h2 className="font-display font-bold text-2xl text-tamar-black mb-4">Same team, new name</h2>
+        <p className="text-base text-ink-800">
+          We traded as Carlton Plastics for years from Kingsmill Rd. We&apos;re now Tamar Plastics Ltd,
+          based on Gwel Avon Business Park in Saltash — same team, same trade counter, same phone
+          number: 01752 841234. If you&apos;ve bought from us before, nothing about how we work has
+          changed except the address.
+        </p>
+      </section>
+
+      {/* Section 7 (partial): local proof via placeholder reviews — full service-area map is Phase 2 */}
+      <section className="bg-ink-050 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="font-display font-bold text-2xl text-tamar-black mb-8">What people say</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {PLACEHOLDER_REVIEWS.map((review) => (
+              <ReviewCard key={review.author} review={review} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Section 8: Contact band */}
+      <section className="mx-auto max-w-7xl px-4 py-16">
+        <Card className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <h2 className="font-display font-bold text-2xl text-tamar-black mb-2">Visit the counter</h2>
+            <address className="not-italic text-base text-ink-800">
+              {BUSINESS.streetAddress}, {BUSINESS.addressLocality}, {BUSINESS.addressRegion} {BUSINESS.postalCode}
+            </address>
+            <div className="mt-2">
+              <CounterStatus />
+            </div>
+          </div>
+          <Button variant="primary" href="/contact/">Get directions</Button>
+        </Card>
+      </section>
+    </>
   );
 }
