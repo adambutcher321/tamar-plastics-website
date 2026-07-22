@@ -53,43 +53,48 @@ export function Hero({ posterSrc, videoSrc }: HeroProps) {
         transition={{ duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* Occluded wordmark — sits behind the fork cards, above the background. */}
-      <div className="absolute inset-x-0 top-0 flex justify-center overflow-hidden pointer-events-none" aria-hidden="true">
-        <span
-          className="font-display font-extrabold text-white/90 leading-none tracking-[-0.03em]"
-          style={{ fontSize: 'clamp(4rem, 18vw, 16rem)' }}
-        >
-          TAMAR
-        </span>
+      {/* Wordmark — pinned to the upper band of the frame, sized to stay clear of the
+          headline block anchored at the bottom. Never let these two collide. */}
+      <div className="absolute inset-x-0 top-[6%] overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="mx-auto max-w-7xl px-4">
+          <span
+            className="block font-display font-extrabold text-white/95 leading-none tracking-[-0.03em]"
+            style={{ fontSize: 'clamp(3rem, 11vw, 9rem)' }}
+          >
+            TAMAR
+          </span>
+        </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-24 flex flex-col items-start gap-6">
+      {/* Headline block — anchored to the bottom of the frame, over the darker lower
+          portion of the photo, so it never competes with the wordmark above it. */}
+      <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-12 flex flex-col items-start gap-5">
         <p className="font-mono text-sm text-white tracking-wide">
           SALTASH, CORNWALL · EST. AS CARLTON PLASTICS
         </p>
 
-        <h1 className="font-display font-extrabold text-white text-3xl sm:text-4xl max-w-3xl">
+        <h1 className="font-display font-extrabold text-white text-2xl sm:text-3xl max-w-2xl [text-shadow:0_2px_16px_rgba(0,0,0,0.5)]">
           uPVC windows, doors and roofline. Supplied over the counter or fitted by us.
         </h1>
 
-        <p className="font-body text-white/90 text-lg max-w-2xl">
+        <p className="font-body text-white/90 text-base max-w-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
           Trade counter on Gwel Avon Business Park. Free surveys across Cornwall and Plymouth.
           Same number you&apos;ve always called: 01752 841234.
         </p>
 
-        <div className="grid gap-4 sm:grid-cols-2 w-full max-w-2xl pt-4">
+        <div className="grid gap-3 sm:grid-cols-2 w-full max-w-xl pt-2">
           <Link
             href="/trade/"
-            className="min-h-[44px] flex flex-col justify-center bg-white text-tamar-black p-6 rounded-sm hover:bg-white/90"
+            className="min-h-[44px] flex flex-col justify-center bg-white text-tamar-black p-5 rounded-sm hover:bg-white/90"
           >
-            <span className="font-display font-bold text-xl">Buying for a job?</span>
+            <span className="font-display font-bold text-lg">Buying for a job?</span>
             <span className="font-body text-sm text-ink-600">Trade &amp; Supply Only →</span>
           </Link>
           <Link
             href="/home-improvements/"
-            className="min-h-[44px] flex flex-col justify-center bg-tamar-black border border-white/20 text-white p-6 rounded-sm hover:bg-tamar-black/80"
+            className="min-h-[44px] flex flex-col justify-center bg-tamar-black border border-white/20 text-white p-5 rounded-sm hover:bg-tamar-black/80"
           >
-            <span className="font-display font-bold text-xl">Improving your home?</span>
+            <span className="font-display font-bold text-lg">Improving your home?</span>
             <span className="font-body text-sm text-ink-200">Supply &amp; Fit →</span>
           </Link>
         </div>

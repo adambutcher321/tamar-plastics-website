@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Hero } from '@/components/marketing/Hero';
-import { AudienceForkCard } from '@/components/marketing/AudienceForkCard';
 import { ProofBand } from '@/components/marketing/ProofBand';
 import { ReviewCard } from '@/components/marketing/ReviewCard';
 import { CounterStatus } from '@/components/marketing/CounterStatus';
@@ -15,23 +14,7 @@ export default function HomePage() {
     <>
       <Hero posterSrc="/images/hero-roofline.webp" />
 
-      {/* Section 2: Audience fork (secondary, lower-page reinforcement of the hero's own fork) */}
-      <section className="mx-auto max-w-7xl px-4 py-16 grid gap-6 sm:grid-cols-2">
-        <AudienceForkCard
-          variant="trade"
-          title="Buying for a job?"
-          description="Open a trade account, check stock and collect from the counter in Saltash."
-          href="/trade/"
-        />
-        <AudienceForkCard
-          variant="home"
-          title="Improving your home?"
-          description="Book a free survey for windows, doors or roofline, supplied and fitted."
-          href="/home-improvements/"
-        />
-      </section>
-
-      {/* Section 3: Product grid */}
+      {/* Section 3: Product grid (the hero already carries the audience fork — no need to repeat it immediately below) */}
       <section className="bg-ink-050 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-display font-bold text-2xl text-tamar-black mb-8">What we stock and fit</h2>
@@ -92,8 +75,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-display font-bold text-2xl text-tamar-black mb-8">What people say</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            {PLACEHOLDER_REVIEWS.map((review) => (
-              <ReviewCard key={review.author} review={review} />
+            {PLACEHOLDER_REVIEWS.map((review, index) => (
+              <ReviewCard key={`${review.town}-${index}`} review={review} />
             ))}
           </div>
         </div>
