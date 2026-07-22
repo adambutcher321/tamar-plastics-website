@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Hero } from '@/components/marketing/Hero';
 import { AudienceForkCard } from '@/components/marketing/AudienceForkCard';
 import { ProofBand } from '@/components/marketing/ProofBand';
@@ -36,14 +37,14 @@ export default function HomePage() {
           <h2 className="font-display font-bold text-2xl text-tamar-black mb-8">What we stock and fit</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PRODUCT_CATEGORIES.map((category) => (
-              <a
+              <Link
                 key={category.slug}
                 href={category.href}
                 className="min-h-[44px] block bg-white border border-ink-200 rounded-sm p-4 hover:border-tamar-orange"
               >
                 <h3 className="font-body font-semibold text-base text-tamar-black">{category.name}</h3>
                 <p className="text-sm text-ink-600 mt-1">{category.blurb}</p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -76,7 +77,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 6: The Carlton story */}
-      <section className="mx-auto max-w-7xl px-4 py-16 max-w-3xl">
+      <section className="mx-auto px-4 py-16 max-w-3xl">
         <h2 className="font-display font-bold text-2xl text-tamar-black mb-4">Same team, new name</h2>
         <p className="text-base text-ink-800">
           We traded as Carlton Plastics for years from Kingsmill Rd. We&apos;re now Tamar Plastics Ltd,
