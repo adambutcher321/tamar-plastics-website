@@ -19,6 +19,7 @@
 - `prefers-reduced-motion: reduce` must produce a fully static, fully legible page — no exceptions.
 - No carousels or sliders anywhere. No parallax on more than one section. No chat widget popping on load.
 - Voice: short sentences, real numbers, no "solutions" / "bespoke journey" / "we pride ourselves" language.
+- Visual bar: the site must read as luxurious and professional, not as generic AI-generated output. No purple/indigo gradients, no generic rounded-everything cards with soft drop shadows, no stock "friendly SaaS" illustration style, no emoji as UI decoration, no cookie-cutter Bootstrap/Tailwind-starter look. The brand system carries this on its own — large confident Archivo Expanded display type, tight negative tracking, generous whitespace, flat colour, sparing orange — lean into scale and restraint rather than adding ornamentation.
 - Every component with real branching logic (not pure JSX/markup) gets a Vitest test written first (TDD). Purely presentational components are verified via `npm run build` (TypeScript compiles, no runtime errors) plus a manual dev-server check in the final task — this project has very little UI branching logic outside the components called out below, so this is the pragmatic test boundary, not an oversight.
 - Every git commit in this plan follows the repo's existing commit convention (see Task 1, Step 5, for the first commit — subsequent commits use plain `feat:` / `test:` / `chore:` prefixes, no footer required beyond what the environment's commit tooling adds automatically).
 
