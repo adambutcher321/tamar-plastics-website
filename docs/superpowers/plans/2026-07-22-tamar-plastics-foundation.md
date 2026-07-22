@@ -170,91 +170,76 @@ git commit -m "chore: scaffold Next.js project with TypeScript, Tailwind, Vitest
 
 ### Task 2: Brand design tokens (Tailwind theme + global CSS)
 
+> **Deviation from original plan, resolved before this task was dispatched:** Task 1's `create-next-app` run installed **Tailwind CSS v4** (the current default), not the v3 the plan originally assumed. Tailwind v4 has no `tailwind.config.ts` theme object by default — theme tokens are declared in CSS via the `@theme` at-rule in `app/globals.css`, and utility classes (`bg-tamar-orange`, `font-display`, etc.) are generated automatically from the custom property names declared there. This task's steps below use the v4 approach. `tailwind.config.ts` (currently just a `content` path array from Task 1) is left as-is — it's harmless in v4 and not required for this task.
+
 **Files:**
-- Modify: `tailwind.config.ts`
 - Modify: `app/globals.css`
 
 **Interfaces:**
-- Produces: Tailwind colour utilities `bg-tamar-orange`, `text-tamar-black`, `bg-ink-800` … `bg-ink-050`, `bg-sky`, `text-in-stock`, and CSS custom properties (`--tamar-orange` etc.) available to any component using raw CSS (needed by Hero's SVG mask work in Task 14). Produces the `font-display`, `font-body`, `font-mono` Tailwind font-family utilities (wired to actual font objects in Task 19 once `next/font` is loaded in the root layout — this task defines the Tailwind-side names only).
+- Produces: Tailwind colour utilities `bg-tamar-orange`, `text-tamar-black`, `bg-ink-800` … `bg-ink-050`, `bg-sky`, `text-in-stock`, and CSS custom properties (`--color-tamar-orange` etc., Tailwind v4's own naming, plus unprefixed aliases `--tamar-orange` etc. matching the spec's exact token names) available to any component using raw CSS (needed by Hero's SVG mask work in Task 14). Produces the `font-display`, `font-body`, `font-mono` Tailwind font-family utilities. These map to next/font CSS variables named `--font-archivo-expanded`, `--font-inter-tight`, `--font-jetbrains-mono` — Task 19 must set `next/font`'s `variable` option to exactly these names (not `--font-display` etc., which would self-reference and break, since those are the Tailwind theme key names this task declares).
 
-- [ ] **Step 1: Write the Tailwind config**
+- [ ] **Step 1: Write global CSS with brand theme tokens**
 
-Replace `tailwind.config.ts`:
-```ts
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
-  content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './content/**/*.{ts,tsx}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        'tamar-orange': '#F2571A',
-        'tamar-black': '#231F20',
-        ink: {
-          800: '#35302F',
-          600: '#5C5654',
-          400: '#8E8785',
-          200: '#D9D4D2',
-          '050': '#F6F4F3',
-        },
-        sky: '#EDF1F4',
-        'in-stock': '#1F7A4C',
-      },
-      fontFamily: {
-        display: ['var(--font-display)'],
-        body: ['var(--font-body)'],
-        mono: ['var(--font-mono)'],
-      },
-      fontSize: {
-        xs: ['12px', { lineHeight: '1.5' }],
-        sm: ['14px', { lineHeight: '1.5' }],
-        base: ['17px', { lineHeight: '1.55' }],
-        lg: ['18px', { lineHeight: '1.55' }],
-        xl: ['22px', { lineHeight: '1.4' }],
-        '2xl': ['28px', { lineHeight: '1.3' }],
-        '3xl': ['40px', { lineHeight: '1.15' }],
-        '4xl': ['64px', { lineHeight: '1.05' }],
-        '5xl': ['96px', { lineHeight: '1' }],
-      },
-    },
-  },
-  plugins: [],
-};
-
-export default config;
-```
-
-- [ ] **Step 2: Write global CSS with brand custom properties**
-
-Replace `app/globals.css`:
+Replace the contents of `app/globals.css` (replacing the `create-next-app` default content) with:
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --color-tamar-orange: #F2571A;
+  --color-tamar-black: #231F20;
+  --color-ink-800: #35302F;
+  --color-ink-600: #5C5654;
+  --color-ink-400: #8E8785;
+  --color-ink-200: #D9D4D2;
+  --color-ink-050: #F6F4F3;
+  --color-sky: #EDF1F4;
+  --color-in-stock: #1F7A4C;
+
+  --font-display: var(--font-archivo-expanded);
+  --font-body: var(--font-inter-tight);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --text-xs: 12px;
+  --text-xs--line-height: 1.5;
+  --text-sm: 14px;
+  --text-sm--line-height: 1.5;
+  --text-base: 17px;
+  --text-base--line-height: 1.55;
+  --text-lg: 18px;
+  --text-lg--line-height: 1.55;
+  --text-xl: 22px;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 28px;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 40px;
+  --text-3xl--line-height: 1.15;
+  --text-4xl: 64px;
+  --text-4xl--line-height: 1.05;
+  --text-5xl: 96px;
+  --text-5xl--line-height: 1;
+}
+
+/* Unprefixed aliases matching the design spec's exact CSS variable names,
+   for any raw CSS that references them directly (e.g. Hero, Task 14). */
 :root {
-  --tamar-orange: #F2571A;
-  --tamar-black: #231F20;
-  --ink-800: #35302F;
-  --ink-600: #5C5654;
-  --ink-400: #8E8785;
-  --ink-200: #D9D4D2;
-  --ink-050: #F6F4F3;
-  --sky: #EDF1F4;
-  --in-stock: #1F7A4C;
+  --tamar-orange: var(--color-tamar-orange);
+  --tamar-black: var(--color-tamar-black);
+  --ink-800: var(--color-ink-800);
+  --ink-600: var(--color-ink-600);
+  --ink-400: var(--color-ink-400);
+  --ink-200: var(--color-ink-200);
+  --ink-050: var(--color-ink-050);
+  --sky: var(--color-sky);
+  --in-stock: var(--color-in-stock);
 }
 
 body {
-  color: var(--tamar-black);
+  color: var(--color-tamar-black);
   background-color: #FFFFFF;
 }
 
 :focus-visible {
-  outline: 2px solid var(--tamar-orange);
+  outline: 2px solid var(--color-tamar-orange);
   outline-offset: 2px;
 }
 
@@ -268,16 +253,20 @@ body {
 }
 ```
 
-- [ ] **Step 3: Verify build**
+- [ ] **Step 2: Verify build**
 
 Run: `npm run build`
-Expected: succeeds with no Tailwind config errors.
+Expected: succeeds with no Tailwind/PostCSS errors.
+
+- [ ] **Step 3: Verify a token utility actually generates CSS**
+
+Run: `npm run dev &` then in another terminal `curl -s http://localhost:3000 | grep -o "bg-tamar-orange" | head -1 || true`, then stop the dev server (`kill %1`). This is a smoke check, not a strict pass/fail gate — the real verification is Step 2's clean build plus visual confirmation in Task 21's manual check. If you'd rather skip the curl smoke check, that's fine; note it as skipped in your report.
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add tailwind.config.ts app/globals.css
-git commit -m "feat: add brand design tokens to Tailwind theme and global CSS"
+git add app/globals.css
+git commit -m "feat: add brand design tokens via Tailwind v4 @theme"
 ```
 
 ---
@@ -2116,24 +2105,28 @@ import { Footer } from '@/components/layout/Footer';
 import { buildLocalBusinessSchema } from '@/lib/schema';
 import './globals.css';
 
+// Variable names here must match the ones app/globals.css's @theme block
+// references (Task 2) — --font-display etc. are the Tailwind theme keys
+// themselves, so next/font's output variables use distinct names to avoid
+// a self-referencing CSS custom property.
 const archivoExpanded = Archivo_Expanded({
   subsets: ['latin'],
   weight: ['700', '800'],
-  variable: '--font-display',
+  variable: '--font-archivo-expanded',
   display: 'swap',
 });
 
 const interTight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
-  variable: '--font-body',
+  variable: '--font-inter-tight',
   display: 'swap',
 });
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
-  variable: '--font-mono',
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 });
 
