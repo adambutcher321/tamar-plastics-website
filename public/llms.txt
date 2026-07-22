@@ -1,0 +1,24 @@
+# Tamar Plastics Ltd
+
+> uPVC and composite windows, doors, roofline, guttering and cladding —
+> supplied over the trade counter or supplied and fitted for homeowners,
+> based in Saltash, Cornwall.
+
+Business: Tamar Plastics Ltd
+Address: Unit 4, Gwel Avon Business Park, Gilston Road, Saltash, Cornwall, PL12 6TW
+Phone: 01752 841234
+Email: info@tamarplasticsltd.co.uk
+Hours: Monday–Friday 08:00–17:00, closed Saturday and Sunday
+Formerly trading as: Carlton Plastics (same phone number, same team)
+Service area: Saltash, Plymouth, Torpoint, Callington, Liskeard, Looe, St Germans, Landrake, Millbrook, Tavistock, Launceston, Bodmin, Trerulefoot, St Mellion
+
+## Pages
+
+- [Homepage](/): Trade counter and installer overview, audience fork to trade or home-improvement funnels.
+- [Trade & Supply Only](/trade/): Trade counter, stock, delivery and account information for installers and builders.
+- [Home Improvements](/home-improvements/): Supply-and-fit windows, doors and roofline for homeowners.
+- [Products](/products/): Full product category index — doors, windows, roofline, guttering, cladding, conservatory roofs, interior, trims & fixings.
+- [Repairs](/repairs/): Sealed units, hinges, handles, locks, gutter and conservatory roof repairs.
+- [Areas](/areas/): Service-area town pages with local context and project examples.
+- [About](/about/): Company history, the transition from Carlton Plastics, team.
+- [Contact](/contact/): Address, map, opening hours, phone.
