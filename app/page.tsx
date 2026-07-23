@@ -3,7 +3,7 @@ import { Hero } from '@/components/home/Hero';
 import { Services } from '@/components/home/Services';
 import { Process } from '@/components/home/Process';
 import { Projects } from '@/components/home/Projects';
-import { PhotoBreak } from '@/components/home/PhotoBreak';
+import { GoogleReviews } from '@/components/home/GoogleReviews';
 import { Footer } from '@/components/home/Footer';
 import { ScrollFx } from '@/components/home/ScrollFx';
 import { Grain } from '@/components/home/Grain';
@@ -20,7 +20,7 @@ export default function HomePage() {
         <Services />
         <Process />
         <Projects />
-        <PhotoBreak />
+        <GoogleReviews />
       </main>
       <Footer />
     </div>

@@ -24,10 +24,12 @@ body {
 /* ---------- Layer stack ---------- */
 
 .home-bg-wrap {
+  /* Static — no transform is applied to this box (see ScrollFx.tsx for why
+     the parallax was removed entirely). inset:0 is exact, not overscanned,
+     since there's no offset that could ever expose an edge. */
   position: fixed;
   inset: 0;
   z-index: -2;
-  will-change: transform;
   overflow: hidden;
 }
 
@@ -437,6 +439,12 @@ body {
   padding: var(--section) var(--gutter);
 }
 
+/* Projects' own bottom padding + this section's top padding was stacking
+   to ~400px of dead space at max viewport width — halve this side only. */
+.section--tight-top {
+  padding-top: calc(var(--section) / 2);
+}
+
 .section-inner {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -676,28 +684,137 @@ body {
   }
 }
 
-/* ---------- Photo break ---------- */
+/* ---------- Google reviews ---------- */
 
-.photo-break {
-  position: relative;
-  height: 56vh;
-  margin: var(--section) 0;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.photo-break img {
+.reviews-summary-score {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.reviews-summary-count {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.reviews-marquee {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  overflow: hidden;
+  margin-top: clamp(32px, 5vw, 56px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.reviews-track {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  animation: reviews-scroll 42s linear infinite;
+}
+
+.reviews-marquee:hover .reviews-track {
+  animation-play-state: paused;
+}
+
+@keyframes reviews-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track is the review list duplicated once, so -50% is exactly one
+       full set — the loop point is seamless. */
+    transform: translateX(-50%);
+  }
+}
+
+.review-card {
+  flex: 0 0 clamp(240px, 26vw, 320px);
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--glass);
+  margin: 0;
+}
+
+.review-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.review-card blockquote {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.62;
+  color: var(--text-muted);
+}
+
+.review-card figcaption {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  /* The track is the 10 reviews duplicated once for the seamless loop —
+     with the animation off, show the first set only, not both. */
+  .reviews-track > *:nth-child(n + 11) {
+    display: none;
+  }
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
+  position: relative;
+  z-index: 1;
+  /* Deliberately opaque, unlike every other section (client steer) — a
+     solid dark capstone rather than another transparent layer over the
+     continuous photo. --ink-raised is the token already reserved for
+     exactly this "solid surface, not page base" role. */
+  background: var(--ink-raised);
   border-top: 1px solid var(--hairline);
-  padding: clamp(48px, 6vw, 80px) var(--gutter) 40px;
+  padding: clamp(32px, 4vw, 48px) var(--gutter) clamp(48px, 6vw, 80px);
+}
+
+.footer-social {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 999px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--edge);
+  border-color: var(--edge);
 }
 
 .footer-grid {

@@ -3,26 +3,29 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Drives the two scroll-coupled effects on the homepage from a single rAF
- * loop: the fixed background's 0.12x parallax, and the nav's glass fade
- * between 0-120px of scroll. Combined into one component so there's one
- * scroll listener, not two.
+ * Drives the nav's glass fade between 0-120px of scroll.
+ *
+ * This previously also drove a 0.12x parallax translateY on the fixed
+ * background image. Removed entirely: `position:fixed` elements don't move
+ * with scroll on their own, so ANY non-zero transform here is scrolling the
+ * image within its own fixed box — capping the offset (the first fix
+ * tried) still left a real, user-visible gap at the top of the viewport on
+ * overscroll/rubber-band bounce (scrollY can briefly go negative on
+ * trackpad bounce, defeating a Math.min-only cap) and on long pages. The
+ * image is the entire backdrop for the page; it must never move relative
+ * to the viewport. If a parallax effect is wanted again later, it needs a
+ * hard-clamped, both-directions-bounded offset, tested against overscroll
+ * — not just a simple multiply.
  */
 export function ScrollFx() {
-  const bgWrapRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     navRef.current = document.querySelector('.nav');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const update = () => {
       const scrollY = window.scrollY;
-
-      if (!reduceMotion && bgWrapRef.current) {
-        bgWrapRef.current.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
-      }
 
       if (navRef.current) {
         const t = Math.min(scrollY / 120, 1);
@@ -50,7 +53,7 @@ export function ScrollFx() {
 
   return (
     <>
-      <div className="home-bg-wrap" ref={bgWrapRef} aria-hidden="true">
+      <div className="home-bg-wrap" aria-hidden="true">
         <img className="home-bg" src="/images/hero2/hero-cold.webp" alt="" />
       </div>
       <div className="home-bg-wash" aria-hidden="true" />
