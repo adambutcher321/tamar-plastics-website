@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ProductIndexPage() {
   return (
     <div className="home">
-      <ScrollFx />
+      <ScrollFx showImage={false} />
       <Grain />
       <Nav />
 

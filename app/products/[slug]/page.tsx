@@ -73,7 +73,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <ScrollFx />
+      <ScrollFx showImage={false} />
       <Grain />
       <Nav />
 

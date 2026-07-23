@@ -17,7 +17,11 @@ import { useEffect, useRef } from 'react';
  * hard-clamped, both-directions-bounded offset, tested against overscroll
  * — not just a simple multiply.
  */
-export function ScrollFx() {
+interface ScrollFxProps {
+  showImage?: boolean;
+}
+
+export function ScrollFx({ showImage = true }: ScrollFxProps) {
   const navRef = useRef<HTMLElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
@@ -53,10 +57,10 @@ export function ScrollFx() {
 
   return (
     <>
-      <div className="home-bg-wrap" aria-hidden="true">
-        <img className="home-bg" src="/images/hero2/hero-cold.webp" alt="" />
+      <div className="home-bg-wrap" aria-hidden="true" style={!showImage ? { background: 'linear-gradient(180deg, #141A19 0%, #0B0F0E 100%)' } : undefined}>
+        {showImage && <img className="home-bg" src="/images/hero2/hero-cold.webp" alt="" />}
       </div>
-      <div className="home-bg-wash" aria-hidden="true" />
+      {showImage && <div className="home-bg-wash" aria-hidden="true" />}
     </>
   );
 }
