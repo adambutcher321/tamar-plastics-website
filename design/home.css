@@ -543,8 +543,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   margin-bottom: 20px;
   border-radius: 999px;
   background: var(--ink-raised);
@@ -559,8 +559,8 @@ body {
 }
 
 .product-card-icon {
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
 }
 
 .product-card:hover h3 {
