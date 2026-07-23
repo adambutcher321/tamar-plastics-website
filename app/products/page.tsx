@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Nav } from '@/components/home/Nav';
+import { Footer } from '@/components/home/Footer';
+import { ScrollFx } from '@/components/home/ScrollFx';
+import { Grain } from '@/components/home/Grain';
 import { PRODUCT_CATEGORIES } from '@/content/product-categories';
 import { ALL_PRODUCTS } from '@/content/products';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { Button } from '@/components/ui/Button';
-import { KeyholeMark } from '@/components/marketing/KeyholeMark';
+import '@/design/home.css';
 
 export const metadata: Metadata = {
   title: 'Products Index — uPVC Windows, Doors & Roofline | Tamar Plastics Ltd',
@@ -14,156 +16,104 @@ export const metadata: Metadata = {
 
 export default function ProductIndexPage() {
   return (
-    <>
-      {/* Breadcrumb Header */}
-      <div className="bg-tamar-black text-white py-4 border-b border-ink-800">
-        <div className="mx-auto max-w-7xl px-4">
-          <Breadcrumbs
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'Products', href: '/products/' },
-            ]}
-          />
-        </div>
-      </div>
+    <div className="home">
+      <ScrollFx />
+      <Grain />
+      <Nav />
 
-      {/* Index Hero */}
-      <section className="bg-tamar-black text-white pt-12 pb-20 border-b border-ink-800">
-        <div className="mx-auto max-w-7xl px-4 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-ink-800 border border-ink-600 rounded-sm font-mono text-xs text-tamar-orange uppercase tracking-wider">
-            <KeyholeMark className="w-4 h-4 text-tamar-orange" />
-            <span>Complete Product Range</span>
-          </div>
-
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white max-w-4xl leading-tight">
-            uPVC Windows, Doors, Roofline &amp; Building Plastics
-          </h1>
-
-          <p className="font-body text-lg sm:text-xl text-ink-200 max-w-3xl leading-relaxed">
-            Trade counter supply in Saltash or professional supply-and-fit installations across Cornwall &amp; Plymouth. High-performance lead-free uPVC and composite building products engineered for Southwest weather endurance.
-          </p>
-
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button variant="primary" href="/trade/">
-              Trade Counter &amp; Accounts
-            </Button>
-            <Button variant="dark" href="/home-improvements/">
-              Homeowner Supply &amp; Fit
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 8 Category High-End Grid */}
-      <section className="py-20 bg-ink-050 text-tamar-black">
-        <div className="mx-auto max-w-7xl px-4 space-y-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-ink-600 block mb-1">
-                Category Catalogue
-              </span>
-              <h2 className="font-display font-bold text-3xl text-tamar-black">
-                Select a Product Category
-              </h2>
-            </div>
-            <p className="font-mono text-sm text-ink-600">
-              8 Core Categories · All In Stock or Custom Made
+      <main>
+        {/* Category Index Hero */}
+        <section className="section scrim">
+          <div className="ghost">PRODUCTS</div>
+          <div className="section-inner" style={{ paddingTop: '40px' }}>
+            <p className="eyebrow">SALTASH, CORNWALL · TRADE COUNTER &amp; INSTALLATION</p>
+            <h1 className="h2" style={{ maxWidth: '18ch', marginBottom: '24px' }}>
+              uPVC Windows, Doors &amp; Building Plastics
+            </h1>
+            <p className="hero-para" style={{ maxWidth: '42ch', marginBottom: '32px' }}>
+              High-performance lead-free uPVC and composite building products engineered for Southwest coastal endurance. Supplied over the counter in Saltash or expertly fitted across Plymouth and Cornwall.
             </p>
+            <div className="hero-ctas">
+              <Link href="/trade/account/" className="btn">
+                Trade &amp; Supply Only →
+              </Link>
+              <Link href="/home-improvements/" className="btn btn--ghost">
+                Homeowner Supply &amp; Fit →
+              </Link>
+            </div>
           </div>
+        </section>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {PRODUCT_CATEGORIES.map((category) => {
-              const fullContent = ALL_PRODUCTS[category.slug];
-              return (
-                <Link
-                  key={category.slug}
-                  href={category.href}
-                  className="group block bg-white border border-ink-200 rounded-sm overflow-hidden hover:border-tamar-orange hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="relative h-48 overflow-hidden bg-tamar-black">
-                      <img
-                        src={category.imageSrc}
-                        alt={category.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
-                      />
-                      <div className="absolute top-3 left-3 bg-tamar-black/80 backdrop-blur-md p-2 rounded-sm border border-ink-600">
-                        <img src={category.iconSrc} alt="" className="w-6 h-6 invert" />
+        {/* 8 Product Categories Grid */}
+        <section className="section">
+          <div className="section-inner">
+            <div className="section-head">
+              <div>
+                <p className="eyebrow">CATALOGUE</p>
+                <h2 className="h2">Select a Product Category</h2>
+              </div>
+              <p className="hero-para" style={{ textAlign: 'right' }}>
+                8 Core Categories · In Stock at Saltash or Custom Made
+              </p>
+            </div>
+
+            <div className="products-grid">
+              {PRODUCT_CATEGORIES.map((category) => {
+                const fullContent = ALL_PRODUCTS[category.slug];
+                return (
+                  <Link key={category.slug} href={category.href} className="product-card">
+                    <div className="product-card-icon-badge">
+                      <img src={category.iconSrc} alt="" className="product-card-icon" />
+                    </div>
+                    <h3 className="h3">{category.name}</h3>
+                    <p style={{ marginBottom: '16px' }}>{category.blurb}</p>
+                    {fullContent?.badgeHighlights && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: 'auto' }}>
+                        {fullContent.badgeHighlights.slice(0, 2).map((badge) => (
+                          <span key={badge} className="ghost-pill" style={{ height: '26px', fontSize: '11px', padding: '0 10px' }}>
+                            {badge}
+                          </span>
+                        ))}
                       </div>
-                    </div>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-                    <div className="p-6 space-y-3">
-                      <h3 className="font-display font-bold text-xl text-tamar-black group-hover:text-tamar-orange transition-colors">
-                        {category.name}
-                      </h3>
-                      <p className="font-body text-sm text-ink-800 leading-relaxed">
-                        {category.blurb}
-                      </p>
-
-                      {fullContent?.badgeHighlights && (
-                        <div className="pt-2 flex flex-wrap gap-1.5">
-                          {fullContent.badgeHighlights.slice(0, 2).map((badge) => (
-                            <span
-                              key={badge}
-                              className="font-mono text-[11px] bg-ink-050 text-ink-600 border border-ink-200 px-2 py-0.5 rounded-sm"
-                            >
-                              {badge}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="px-6 pb-6 pt-2 border-t border-ink-050 flex items-center justify-between font-mono text-xs text-tamar-orange font-bold">
-                    <span>View Specifications</span>
-                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
+        {/* Audience Split Banner */}
+        <section className="section scrim">
+          <div className="section-inner">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--gap)' }}>
+              <div className="product-card" style={{ padding: '36px' }}>
+                <p className="eyebrow" style={{ color: 'var(--edge)' }}>FOR TRADE BUYERS &amp; BUILDERS</p>
+                <h3 className="h2" style={{ fontSize: '28px', marginBottom: '16px' }}>Visiting the Trade Counter?</h3>
+                <p className="hero-para" style={{ marginBottom: '24px', maxWidth: '100%' }}>
+                  Counter open Monday–Friday 08:00–17:00 at Unit 4, Gwel Avon Business Park, Gilston Road, Saltash (PL12 6TW). Same-day stock collection for standard lines.
+                </p>
+                <Link href="/trade/collection-delivery/" className="btn">
+                  Counter Hours &amp; Delivery Radius →
                 </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+              </div>
 
-      {/* Dual Audience Banner */}
-      <section className="py-16 bg-tamar-black text-white border-t border-ink-800">
-        <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-8">
-          <div className="bg-ink-800 border border-ink-600 p-8 rounded-sm space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-tamar-orange">
-              Trade &amp; Commercial
-            </span>
-            <h3 className="font-display font-bold text-2xl text-white">
-              Visiting the Trade Counter in Saltash?
-            </h3>
-            <p className="font-body text-sm text-ink-200">
-              Counter open Monday–Friday 08:00–17:00 at Unit 4, Gwel Avon Business Park, Gilston Road, Saltash (PL12 6TW). Same-day stock collection for standard lines.
-            </p>
-            <div className="pt-2">
-              <Button variant="primary" href="/trade/collection-delivery/">
-                Counter Hours &amp; Delivery Radius
-              </Button>
+              <div className="product-card" style={{ padding: '36px' }}>
+                <p className="eyebrow" style={{ color: 'var(--in-stock)' }}>FOR HOMEOWNERS &amp; RENOVATORS</p>
+                <h3 className="h2" style={{ fontSize: '28px', marginBottom: '16px' }}>Need Fitting Services?</h3>
+                <p className="hero-para" style={{ marginBottom: '24px', maxWidth: '100%' }}>
+                  We provide free site surveys across Saltash, Plymouth, Torpoint, Tavistock, Liskeard, and Cornwall. FENSA-backed installations with a 10-year guarantee.
+                </p>
+                <Link href="/home-improvements/process/" className="btn btn--ghost">
+                  5-Step Survey &amp; Fit Process →
+                </Link>
+              </div>
             </div>
           </div>
+        </section>
+      </main>
 
-          <div className="bg-ink-800 border border-ink-600 p-8 rounded-sm space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-in-stock">
-              Homeowner Installation
-            </span>
-            <h3 className="font-display font-bold text-2xl text-white">
-              Need Windows or Doors Fitted?
-            </h3>
-            <p className="font-body text-sm text-ink-200">
-              We provide free site surveys across Saltash, Plymouth, Torpoint, Tavistock, Liskeard, and Cornwall. FENSA-backed installations with a 10-year guarantee.
-            </p>
-            <div className="pt-2">
-              <Button variant="primary" href="/home-improvements/process/">
-                Our 5-Step Installation Process
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      <Footer />
+    </div>
   );
 }
