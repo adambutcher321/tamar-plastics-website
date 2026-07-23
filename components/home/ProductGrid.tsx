@@ -21,7 +21,9 @@ export function ProductGrid() {
           {PRODUCT_CATEGORIES.map((category, index) => (
             <Reveal key={category.slug} delayMs={index * 70}>
               <Link href={category.href} className="product-card">
-                <img className="product-card-icon" src={category.iconSrc} alt="" aria-hidden="true" />
+                <span className="product-card-icon-badge">
+                  <img className="product-card-icon" src={category.iconSrc} alt="" aria-hidden="true" />
+                </span>
                 <h3 className="h3">{category.name}</h3>
                 <p>{category.blurb}</p>
               </Link>
