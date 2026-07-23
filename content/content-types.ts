@@ -19,14 +19,25 @@ export interface CrossLink {
  * answer-first summary, and 5+ FAQs" structural rather than a thing to
  * remember by hand.
  */
+export interface ProductFeature {
+  title: string;
+  description: string;
+}
+
 export interface ProductPageContent {
   slug: string;
   name: string;
   h1: string;
+  tagline?: string;
+  heroImage?: string;
+  badgeHighlights?: string[];
   /** ~60 words, extractable as a standalone answer by an AI search engine. */
   answerFirstSummary: string;
   specTable: SpecRow[];
   colours: string[];
+  features?: ProductFeature[];
+  guarantee?: string;
+  leadTime?: string;
   faqs: Faq[];
   crossLinks: CrossLink[];
 }
