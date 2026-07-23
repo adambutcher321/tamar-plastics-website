@@ -228,7 +228,8 @@ body {
 .ghost-pill:focus-visible,
 .nav-links a:focus-visible,
 .inline-link:focus-visible,
-.project-card:focus-visible {
+.project-card:focus-visible,
+.product-card:focus-visible {
   outline: 2px solid var(--edge);
   outline-offset: 2px;
 }
@@ -512,6 +513,68 @@ body {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   margin: 0;
+}
+
+/* ---------- Product grid ---------- */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.product-card {
+  display: block;
+  padding: 28px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--glass);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.product-card:hover {
+  border-color: var(--glass-edge);
+  background: rgba(242, 245, 244, 0.12);
+}
+
+.product-card-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  transition: transform 400ms var(--ease);
+}
+
+.product-card:hover .product-card-icon {
+  transform: translateY(-2px);
+}
+
+.product-card:hover h3 {
+  color: var(--edge);
+}
+
+.product-card h3 {
+  transition: color 200ms ease;
+}
+
+.product-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Services ---------- */
