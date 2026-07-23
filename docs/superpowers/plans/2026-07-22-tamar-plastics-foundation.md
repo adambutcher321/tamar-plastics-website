@@ -2095,12 +2095,14 @@ git commit -m "feat: add product category summary data for homepage grid"
 - Consumes: `Header` (Task 12), `Footer` (Task 13), `buildLocalBusinessSchema` (Task 6).
 - Produces: the root layout every route in the site renders inside.
 
+> **Deviation, resolved before this task was dispatched:** the plan originally imported `Archivo_Expanded` from `next/font/google`, assuming it was a distinct Google Fonts family. It isn't — Google Fonts only has `Archivo`, `Archivo Black`, and `Archivo Narrow`; a build against `Archivo_Expanded` fails with "Unknown font." `Archivo` is a variable font with a `wdth` (width) axis from 62 to 125 (default 100) — the "expanded" look the brand spec wants is that axis pushed toward its max, not a separate family. The fix below loads `Archivo` as a variable font with the `wdth` axis enabled, and `app/globals.css` (already patched on this branch) adds `.font-display { font-stretch: 125%; }`, which is the standard CSS property that maps directly to a variable font's `wdth` axis in evergreen browsers.
+
 - [ ] **Step 1: Write the root layout**
 
 Replace `app/layout.tsx`:
 ```tsx
 import type { Metadata } from 'next';
-import { Archivo_Expanded, Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { Archivo, Inter_Tight, JetBrains_Mono } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { buildLocalBusinessSchema } from '@/lib/schema';
@@ -2110,9 +2112,17 @@ import './globals.css';
 // references (Task 2) — --font-display etc. are the Tailwind theme keys
 // themselves, so next/font's output variables use distinct names to avoid
 // a self-referencing CSS custom property.
-const archivoExpanded = Archivo_Expanded({
+//
+// Archivo is loaded as a variable font with its width axis enabled so the
+// wdth axis can be pushed to "expanded" via globals.css's
+// `.font-display { font-stretch: 125%; }` rule — see the deviation note
+// above. `weight: 'variable'` loads the full weight range; actual heading
+// weight (700/800) is still set per-element via Tailwind's font-bold /
+// font-extrabold utilities, unaffected by this axes configuration.
+const archivoExpanded = Archivo({
   subsets: ['latin'],
-  weight: ['700', '800'],
+  weight: 'variable',
+  axes: ['wdth'],
   variable: '--font-archivo-expanded',
   display: 'swap',
 });
