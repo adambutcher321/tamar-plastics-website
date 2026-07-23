@@ -1,0 +1,26 @@
+:root {
+  --ink: #0B0F0E;
+  --ink-raised: #121817;
+  --ink-deep: #060908;
+  --paper: #F2F5F4;
+  --text: #F2F5F4;
+  --text-muted: rgba(242, 245, 244, 0.58);
+  --text-faint: rgba(242, 245, 244, 0.42);
+  --hairline: rgba(242, 245, 244, 0.12);
+  --glass: rgba(242, 245, 244, 0.08);
+  --glass-edge: rgba(242, 245, 244, 0.16);
+
+  --edge: #F58A2E;
+  --edge-deep: #C4541C;
+  --edge-glow: rgba(245, 138, 46, 0.28);
+
+  --font-display: var(--font-archivo-2), 'Archivo', sans-serif;
+  --font-body: var(--font-inter-2), 'Inter', sans-serif;
+
+  --gutter: clamp(20px, 3.6vw, 56px);
+  --maxw: 1560px;
+  --section: clamp(96px, 12vw, 200px);
+  --gap: 24px;
+  --radius: 4px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

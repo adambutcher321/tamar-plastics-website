@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { Archivo, Inter_Tight, JetBrains_Mono } from 'next/font/google';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { Archivo, Inter_Tight, JetBrains_Mono, Inter } from 'next/font/google';
 import { buildLocalBusinessSchema } from '@/lib/schema';
 import './globals.css';
+import '@/design/tokens.css';
 
 // Variable names here must match the ones app/globals.css's @theme block
 // references (Task 2) — --font-display etc. are the Tailwind theme keys
@@ -33,6 +32,23 @@ const jetBrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+// Homepage art-direction fonts (design/tokens.css: --font-display / --font-body)
+// — plain Archivo 600/700 and Inter 400/500, distinct from the archivo-expanded
+// variable font above so the two systems don't collide.
+const archivoDisplay = Archivo({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-archivo-2',
+  display: 'swap',
+});
+
+const interBody = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-inter-2',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'Tamar Plastics Ltd — uPVC Windows, Doors & Roofline in Saltash, Cornwall',
   description:
@@ -45,15 +61,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <body
-        className={`${archivo.variable} ${interTight.variable} ${jetBrainsMono.variable} font-body`}
+        className={`${archivo.variable} ${interTight.variable} ${jetBrainsMono.variable} ${archivoDisplay.variable} ${interBody.variable}`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
