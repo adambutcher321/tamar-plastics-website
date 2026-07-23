@@ -439,10 +439,16 @@ body {
   padding: var(--section) var(--gutter);
 }
 
-/* Projects' own bottom padding + this section's top padding was stacking
-   to ~400px of dead space at max viewport width — halve this side only. */
+/* Projects' own bottom padding + Reviews' top padding was stacking to
+   ~400px of dead space at wide viewports — cut both sides of that one
+   gap down to a fixed, non-scaling value instead of the shared --section
+   token (still generous section breathing room everywhere else). */
 .section--tight-top {
-  padding-top: calc(var(--section) / 2);
+  padding-top: 32px;
+}
+
+.section--tight-bottom {
+  padding-bottom: 32px;
 }
 
 .section-inner {

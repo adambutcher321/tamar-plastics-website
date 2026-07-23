@@ -18,7 +18,7 @@ const PROJECTS = [
 
 export function Projects() {
   return (
-    <section className="section scrim" aria-labelledby="projects-heading">
+    <section className="section section--tight-bottom scrim" aria-labelledby="projects-heading">
       <div className="section-inner">
         <div className="section-head">
           <div>
