@@ -1,0 +1,562 @@
+/*
+  contact.css — Tamar Plastics contact page.
+  Extends home.css (already imported first in page.tsx).
+  All tokens come from design/tokens.css.
+*/
+
+/* ─── Page hero ────────────────────────────────────────────────────────── */
+
+.contact-hero {
+  padding-bottom: 0;
+}
+
+.contact-hero-inner {
+  padding-top: 40px;
+}
+
+.contact-heading {
+  margin-top: 16px;
+  margin-bottom: 20px;
+  max-width: 22ch;
+}
+
+.contact-intro {
+  max-width: 46ch;
+  margin-bottom: 0;
+}
+
+/* ─── Two-column grid ───────────────────────────────────────────────────── */
+
+.contact-body {
+  padding-top: clamp(32px, 4vw, 56px);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ─── Info panel ────────────────────────────────────────────────────────── */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-info-block {
+  padding: 24px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.contact-info-block:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.contact-info-heading {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+}
+
+.contact-address {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.contact-address p {
+  margin: 0;
+}
+
+.contact-tel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 200ms ease;
+}
+
+.contact-tel:hover,
+.contact-tel:focus-visible {
+  color: var(--edge);
+}
+
+.contact-email {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 200ms ease;
+}
+
+.contact-email:hover,
+.contact-email:focus-visible {
+  color: var(--text);
+}
+
+.contact-hours {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.contact-info-note {
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+.contact-info-divider {
+  height: 1px;
+  background: var(--hairline);
+  margin: 8px 0 24px;
+}
+
+.contact-reassurance {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* ─── Form wrapper ──────────────────────────────────────────────────────── */
+
+.contact-form-wrap {
+  /*
+    Subtle background so the form reads as a distinct surface against the dark
+    page — not a panel, just enough to separate the two columns visually.
+    Uses the existing glass token rather than a hard-coded value.
+  */
+  background: var(--glass);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 48px);
+}
+
+/* ─── Field layout ──────────────────────────────────────────────────────── */
+
+.cf-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ─── Labels ────────────────────────────────────────────────────────────── */
+
+.cf-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.cf-optional {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
+/* ─── Inputs & select ───────────────────────────────────────────────────── */
+
+.cf-input,
+.cf-select,
+.cf-textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Height and spacing */
+  padding: 11px 14px;
+  min-height: 48px;
+
+  /* Appearance */
+  background: var(--ink-raised);
+  border: 1px solid rgba(242, 245, 244, 0.16);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+
+  /* Transitions — only border and background, not layout */
+  transition: border-color 180ms ease, background 180ms ease;
+
+  /* Prevent iOS auto-zoom on focus */
+  -webkit-text-size-adjust: 100%;
+}
+
+.cf-input::placeholder,
+.cf-textarea::placeholder {
+  color: var(--text-faint);
+}
+
+/* Half-width for short fields like postcode */
+.cf-input--half {
+  max-width: 18ch;
+}
+
+/* Hover — subtle brightening of the border */
+.cf-input:hover,
+.cf-select:hover,
+.cf-textarea:hover {
+  border-color: rgba(242, 245, 244, 0.28);
+}
+
+/* Focus — orange outline, matching the site-wide :focus-visible rule */
+.cf-input:focus-visible,
+.cf-select:focus-visible,
+.cf-textarea:focus-visible,
+.cf-checkbox:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 2px;
+  border-color: var(--edge);
+  background: var(--ink-deep);
+}
+
+/* Error state */
+.cf-field[data-error="true"] .cf-input,
+.cf-field[data-error="true"] .cf-select,
+.cf-field[data-error="true"] .cf-textarea {
+  border-color: #e05a3a;
+}
+
+/* Remove browser default select arrow; add a custom one */
+.cf-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='rgba(242,245,244,0.42)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Option colour on systems that support it */
+.cf-select option {
+  background: #1a1f1e;
+  color: var(--text);
+}
+
+/* Textarea */
+.cf-textarea {
+  resize: vertical;
+  min-height: 148px;
+}
+
+/* ─── Hint and inline error text ────────────────────────────────────────── */
+
+.cf-hint {
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cf-error {
+  font-size: 12px;
+  color: #f08060;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Checkbox / consent ────────────────────────────────────────────────── */
+
+.cf-consent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cf-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cf-checkbox {
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1px solid rgba(242, 245, 244, 0.28);
+  border-radius: 2px;
+  background: var(--ink-raised);
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.cf-checkbox:checked {
+  background: var(--edge);
+  border-color: var(--edge);
+  /* Checkmark via background SVG — no external icon lib */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%230B0F0E' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cf-checkbox:hover {
+  border-color: rgba(242, 245, 244, 0.48);
+}
+
+.cf-consent[data-error="true"] .cf-checkbox {
+  border-color: #e05a3a;
+}
+
+.cf-consent-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+/* ─── Error summary ─────────────────────────────────────────────────────── */
+
+.cf-error-summary {
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  border: 1px solid #e05a3a;
+  border-radius: var(--radius);
+  background: rgba(224, 90, 58, 0.08);
+}
+
+.cf-error-summary-heading {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f08060;
+  margin: 0 0 10px;
+}
+
+.cf-error-summary-item {
+  font-size: 13px;
+  color: #f08060;
+  margin: 0;
+}
+
+.cf-error-summary-list {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cf-error-summary-link {
+  font-size: 13px;
+  color: #f08060;
+  text-underline-offset: 3px;
+}
+
+.cf-error-summary-link:hover,
+.cf-error-summary-link:focus-visible {
+  color: #ffa080;
+}
+
+/* ─── Submit row ────────────────────────────────────────────────────────── */
+
+.cf-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.cf-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 28px;
+
+  /* Pill shape matches the existing .btn convention */
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  /* Solid dark fill — primary button variant used on light-ish surfaces */
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+
+  transition: background 200ms ease, transform 200ms var(--ease), opacity 200ms ease;
+}
+
+.cf-submit:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.cf-submit:active:not(:disabled) {
+  transform: translateY(0);
+  background: var(--paper);
+}
+
+.cf-submit:disabled,
+.cf-submit[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cf-submit:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 2px;
+}
+
+.cf-submit-note {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Loading spinner ───────────────────────────────────────────────────── */
+
+.cf-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(11, 15, 14, 0.25);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: cf-spin 0.7s linear infinite;
+}
+
+@keyframes cf-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-spinner {
+    animation: none;
+    border-style: dotted;
+  }
+}
+
+/* ─── Honeypot (visually hidden, not display:none so bots encounter it) ─── */
+
+.cf-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
+/* ─── Success state ─────────────────────────────────────────────────────── */
+
+.cf-success {
+  padding: clamp(32px, 4vw, 56px);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--glass);
+  text-align: left;
+}
+
+.cf-success-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(31, 122, 76, 0.5);
+  color: #4ade80;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cf-success-heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.cf-success-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 44ch;
+}
+
+.cf-link {
+  color: var(--text);
+  text-underline-offset: 4px;
+}
+
+.cf-link:hover {
+  color: var(--edge);
+}
+
+/* ─── Mobile layout ─────────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .contact-form-wrap {
+    padding: 24px 20px;
+  }
+
+  .cf-submit-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cf-submit {
+    width: 100%;
+  }
+
+  .cf-input--half {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrap {
+    margin: 0 -4px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+}
