@@ -14,7 +14,7 @@
   --edge-deep: #C4541C;
   --edge-glow: rgba(245, 138, 46, 0.28);
 
-  --font-display: var(--font-archivo-2), 'Archivo', sans-serif;
+  --font-display: 'proxima-nova', sans-serif;
   --font-body: var(--font-inter-2), 'Inter', sans-serif;
 
   --gutter: clamp(20px, 3.6vw, 56px);

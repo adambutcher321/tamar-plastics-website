@@ -5,7 +5,7 @@ export const WINDOWS_CONTENT: ProductPageContent = {
   name: 'Windows',
   h1: 'uPVC Windows in Saltash, Plymouth & Cornwall',
   tagline: 'Energy A-Rated casement, heritage flush sash, sliding sash, and bay windows.',
-  heroImage: '/images/products/windows.webp',
+  heroImage: '/images/products/windows.png',
   badgeHighlights: [
     'WER A+ Energy Rated',
     '1.2 W/m²K Double / 0.8 Triple',

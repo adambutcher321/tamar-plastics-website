@@ -145,17 +145,18 @@ body {
 }
 
 .nav-links a {
-  font-size: 13px;
-  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
   text-decoration: none;
   padding-bottom: 3px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1.5px solid transparent;
   transition: color 200ms ease, border-color 200ms ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  color: var(--text);
+  color: #ffffff;
   border-bottom-color: var(--edge);
 }
 
@@ -343,10 +344,11 @@ body {
 }
 
 .hero-para {
-  font-size: 14px;
-  line-height: 1.62;
-  color: var(--text-muted);
-  max-width: 34ch;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 38ch;
   margin: 0;
 }
 
@@ -357,7 +359,7 @@ body {
   padding: 12px 16px;
   margin: -12px -16px;
   border-radius: var(--radius);
-  background: radial-gradient(ellipse at center, rgba(6, 9, 8, 0.55) 0%, rgba(6, 9, 8, 0) 75%);
+  background: radial-gradient(ellipse at center, rgba(6, 9, 8, 0.65) 0%, rgba(6, 9, 8, 0) 75%);
 }
 
 .hero-ctas {
@@ -373,39 +375,44 @@ body {
 }
 
 .hero-stat {
-  padding: 20px 28px 0;
+  padding: 24px 20px;
   border-left: 1px solid var(--hairline);
+  text-align: center;
 }
 
 .hero-stat:first-child {
   border-left: 0;
-  padding-left: 0;
 }
 
 .hero-stat-value {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  font-size: clamp(34px, 4vw, 56px);
   letter-spacing: -0.01em;
-  color: var(--text);
+  color: #ffffff;
   display: block;
+  /* Tabular numerals prevent width jitter as digits count up */
+  font-variant-numeric: tabular-nums;
+  /* Prevent 24–48HR breaking across two lines */
+  white-space: nowrap;
 }
 
 .hero-stat-label {
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text);
   display: block;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  font-weight: 500;
+  color: var(--text-muted);
+  font-weight: 600;
   margin: 0 0 12px;
 }
 
@@ -860,96 +867,471 @@ body {
 
 /* ---------- Footer ---------- */
 
+/*
+  Three connected zones, sharing one container width:
+    1. .footer-enquiry-strip — typeset CTA
+    2. .footer-main          — brand anchor + contact + nav grid
+    3. .footer-utility       — copyright + legal row
+*/
+
 .site-footer {
   position: relative;
   z-index: 1;
-  /* Deliberately opaque, unlike every other section (client steer) — a
-     solid dark capstone rather than another transparent layer over the
-     continuous photo. --ink-raised is the token already reserved for
-     exactly this "solid surface, not page base" role. */
   background: var(--ink-raised);
   border-top: 1px solid var(--hairline);
-  padding: clamp(32px, 4vw, 48px) var(--gutter) clamp(48px, 6vw, 80px);
 }
 
-.footer-social {
+/* Shared inner container — mirrors .section-inner alignment */
+.footer-inner {
   max-width: var(--maxw);
   margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ── 1. Enquiry strip ──────────────────────────────────────────────── */
+
+.footer-enquiry-strip {
+  padding: clamp(32px, 4vw, 48px) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.footer-enquiry-strip .footer-inner {
   display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  padding-bottom: clamp(24px, 3vw, 40px);
-}
-
-.footer-social a {
-  color: var(--text-muted);
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--glass-edge);
-  border-radius: 999px;
-  transition: color 200ms ease, border-color 200ms ease;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 64px);
 }
 
-.footer-social a:hover,
-.footer-social a:focus-visible {
-  color: var(--edge);
-  border-color: var(--edge);
+.footer-enquiry-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.footer-grid {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-}
-
-.footer-grid h3 {
+.footer-enquiry-heading {
   font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  margin: 0 0 16px;
+  color: var(--text);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  max-width: 28ch;
 }
 
-.footer-grid address,
-.footer-grid p {
-  font-style: normal;
-  font-size: 14px;
+.footer-enquiry-sub {
+  font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
+  max-width: 52ch;
 }
 
-.footer-grid a {
+.footer-enquiry-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-tel-link {
+  font-size: 14px;
+  font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color 200ms ease;
 }
 
-.footer-grid a:hover {
+.footer-tel-link:hover,
+.footer-tel-link:focus-visible {
   color: var(--text);
 }
 
-.footer-links {
+/* ── 2. Main content grid ─────────────────────────────────────────── */
+
+.footer-main {
+  padding: clamp(36px, 4.5vw, 56px) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.footer-grid {
+  display: grid;
+  /*
+    Brand column gets ~320px of minimum width — deliberately wider than the
+    other two so it reads as the visual anchor. Contact and nav share the rest.
+    Not equal thirds: proportions are chosen by content weight.
+  */
+  grid-template-columns: minmax(280px, 320px) 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+/* ── Brand column ─────────────────────────────────────────────────── */
+
+.footer-brand {
   display: flex;
   flex-direction: column;
+  gap: 0;
+}
+
+.footer-logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin-bottom: 14px;
+  opacity: 0.92;
+  transition: opacity 200ms ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.footer-brand-formerly {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 12px;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  max-width: 30ch;
+}
+
+/* Social links — contained inside the brand column */
+.footer-social {
+  display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--text-faint);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--text);
+  border-color: var(--glass-edge);
+}
+
+/* ── Column labels (shared) ───────────────────────────────────────── */
+
+.footer-col-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* ── Contact column ───────────────────────────────────────────────── */
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.footer-address p {
+  margin: 0;
+}
+
+.footer-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.footer-contact-link {
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.footer-phone {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.footer-phone:hover,
+.footer-phone:focus-visible {
+  color: var(--edge);
+}
+
+.footer-email {
+  font-size: 12px;
+  color: var(--text-faint);
+  word-break: break-all;
+}
+
+.footer-email:hover,
+.footer-email:focus-visible {
+  color: var(--text-muted);
+}
+
+.footer-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.footer-hours-days {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.footer-hours-times {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-counter-status {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.footer-directions {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-faint);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 200ms ease;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-directions:hover,
+.footer-directions:focus-visible {
+  color: var(--text-muted);
+  border-bottom-color: var(--hairline);
+}
+
+/* ── Navigation column ────────────────────────────────────────────── */
+
+.footer-nav-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footer-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-@media (max-width: 720px) {
+.footer-nav-list a {
+  display: block;
+  padding: 5px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, padding-left 200ms var(--ease);
+}
+
+.footer-nav-list a:hover,
+.footer-nav-list a:focus-visible {
+  color: var(--text);
+  padding-left: 4px;
+}
+
+/* ── 3. Utility row ───────────────────────────────────────────────── */
+
+.footer-utility {
+  padding: 16px 0;
+}
+
+.footer-utility-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a,
+.footer-legal button,
+.footer-legal-btn {
+  font-size: 11px;
+  color: var(--text-faint);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: color 200ms ease;
+}
+
+.footer-legal a:hover,
+.footer-legal a:focus-visible,
+.footer-legal button:hover,
+.footer-legal button:focus-visible,
+.footer-legal-btn:hover,
+.footer-legal-btn:focus-visible {
+  color: var(--text-muted);
+}
+
+/* ── Focus styles ─────────────────────────────────────────────────── */
+
+.footer-social-link:focus-visible,
+.footer-tel-link:focus-visible,
+.footer-contact-link:focus-visible,
+.footer-directions:focus-visible,
+.footer-nav-list a:focus-visible,
+.footer-legal a:focus-visible,
+.footer-logo:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 2px;
+}
+
+/* ── Tablet layout (768px) ────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--hairline);
+    flex-wrap: wrap;
+  }
+
+  .footer-brand-desc {
+    max-width: 44ch;
+  }
+
+  .footer-enquiry-strip .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-enquiry-actions {
+    flex-direction: row;
+    align-items: center;
   }
 }
+
+/* ── Mobile layout (640px) ────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 24px;
+  }
+
+  .footer-enquiry-heading {
+    font-size: clamp(17px, 4.5vw, 22px);
+  }
+
+  .footer-nav-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+  }
+}
+
+/* ── Narrow phone (375px) ─────────────────────────────────────────── */
+
+@media (max-width: 420px) {
+  .footer-enquiry-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-enquiry-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-nav-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-utility-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
 
 /* ---------- Motion ---------- */
 

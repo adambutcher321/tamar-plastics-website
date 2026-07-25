@@ -5,7 +5,7 @@ export const DOORS_CONTENT: ProductPageContent = {
   name: 'Doors',
   h1: 'uPVC & Composite Doors in Saltash, Plymouth & Cornwall',
   tagline: 'Precision-engineered composite and uPVC entrance, French, patio, and bi-fold doors.',
-  heroImage: '/images/products/doors.webp',
+  heroImage: '/images/products/doors.png',
   badgeHighlights: [
     'PAS 24 & Secured by Design',
     'Ultion 3-Star Diamond Lock',

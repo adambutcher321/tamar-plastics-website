@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HeroStats } from './HeroStats';
 
 export function Hero() {
   return (
@@ -26,32 +27,17 @@ export function Hero() {
         </div>
 
         <div className="hero-ctas">
-          <Link href="/trade/" className="btn">
-            Check stock →
+          <Link href="/book-a-survey/" className="btn">
+            BOOK A SURVEY →
           </Link>
-          <Link href="/home-improvements/" className="btn btn--ghost">
-            Book a survey
+          <Link href="/products/" className="btn btn--ghost">
+            Explore products
           </Link>
         </div>
 
-        <div className="hero-stats" role="list">
-          {/* TODO: confirm real years-trading figure (continuity from Carlton Plastics) */}
-          <div className="hero-stat" role="listitem">
-            <span className="hero-stat-value">12+</span>
-            <span className="hero-stat-label">Years trading</span>
-          </div>
-          {/* TODO: confirm real stocked-lines figure */}
-          <div className="hero-stat" role="listitem">
-            <span className="hero-stat-value">500+</span>
-            <span className="hero-stat-label">Lines in stock</span>
-          </div>
-          {/* TODO: confirm real average lead time */}
-          <div className="hero-stat" role="listitem">
-            <span className="hero-stat-value">24–48HR</span>
-            <span className="hero-stat-label">Average lead time</span>
-          </div>
-        </div>
+        <HeroStats />
       </div>
     </header>
   );
 }
+

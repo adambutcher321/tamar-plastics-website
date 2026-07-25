@@ -8,8 +8,8 @@ export interface ProductCategorySummary {
 }
 
 export const PRODUCT_CATEGORIES: ProductCategorySummary[] = [
-  { slug: 'doors', name: 'Doors', blurb: 'uPVC and composite, front to bi-fold.', href: '/products/doors/', imageSrc: '/images/products/doors.webp', iconSrc: '/images/icons/doors.svg' },
-  { slug: 'windows', name: 'Windows', blurb: 'Casement, flush sash, sash and bay.', href: '/products/windows/', imageSrc: '/images/products/windows.webp', iconSrc: '/images/icons/windows.svg' },
+  { slug: 'doors', name: 'Doors', blurb: 'uPVC and composite, front to bi-fold.', href: '/products/doors/', imageSrc: '/images/products/doors.png', iconSrc: '/images/icons/doors.svg' },
+  { slug: 'windows', name: 'Windows', blurb: 'Casement, flush sash, sash and bay.', href: '/products/windows/', imageSrc: '/images/products/windows.png', iconSrc: '/images/icons/windows.svg' },
   { slug: 'roofline', name: 'Roofline', blurb: 'Fascias, soffits, bargeboards, dry verge.', href: '/products/roofline/', imageSrc: '/images/products/roofline.webp', iconSrc: '/images/icons/roofline.svg' },
   { slug: 'guttering', name: 'Guttering', blurb: 'uPVC, cast-iron effect and aluminium.', href: '/products/guttering/', imageSrc: '/images/products/guttering.webp', iconSrc: '/images/icons/guttering.svg' },
   { slug: 'cladding', name: 'Cladding', blurb: 'Shiplap, open-V, woodgrain foils.', href: '/products/cladding/', imageSrc: '/images/products/cladding.webp', iconSrc: '/images/icons/cladding.svg' },

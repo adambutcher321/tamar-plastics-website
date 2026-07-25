@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-tamar-orange: #F2571A;
+  --color-tamar-orange: #F58A2E;
   --color-tamar-black: #231F20;
   --color-ink-800: #35302F;
   --color-ink-600: #5C5654;
@@ -11,7 +11,7 @@
   --color-sky: #EDF1F4;
   --color-in-stock: #1F7A4C;
 
-  --font-display: var(--font-archivo-expanded);
+  --font-display: 'proxima-nova', sans-serif;
   --font-body: var(--font-inter-tight);
   --font-mono: var(--font-jetbrains-mono);
 
@@ -54,13 +54,6 @@ body {
   background-color: #FFFFFF;
 }
 
-/* "Archivo Expanded" isn't a distinct Google Fonts family — Archivo is a
-   variable font whose width axis (wdth, 62-125) covers the expanded look
-   the brand spec calls for. font-stretch is the standard CSS property
-   that maps to a variable font's wdth axis in evergreen browsers. */
-.font-display {
-  font-stretch: 125%;
-}
 
 :focus-visible {
   outline: 2px solid var(--color-tamar-orange);

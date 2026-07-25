@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { KeyholeMark } from '@/components/marketing/KeyholeMark';
+import Image from 'next/image';
 import { CounterStatus } from '@/components/marketing/CounterStatus';
 import { BUSINESS } from '@/content/business';
 
@@ -20,9 +20,15 @@ export function Header() {
   return (
     <header className="border-b border-ink-200">
       <div className="mx-auto max-w-7xl flex items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 font-display font-bold text-lg text-tamar-black">
-          <KeyholeMark className="w-8 h-8 text-tamar-orange" />
-          Tamar Plastics
+        <Link href="/" className="flex items-center gap-2" aria-label="Tamar Plastics Home">
+          <Image
+            src="/tamar-logo.svg"
+            alt="Tamar Plastics Logo"
+            width={280}
+            height={90}
+            className="h-20 sm:h-24 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <nav aria-label="Audience" className="flex items-center gap-2">

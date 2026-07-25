@@ -55,11 +55,17 @@ export const metadata: Metadata = {
     'Trade counter and installer in Saltash, Cornwall. uPVC and composite windows, doors and roofline — supplied over the counter or supplied and fitted.',
 };
 
+import { CookieBanner } from '@/components/privacy/CookieBanner';
+import '@/components/privacy/cookie-banner.css';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const localBusinessSchema = buildLocalBusinessSchema();
 
   return (
     <html lang="en-GB">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/riz0ofe.css" />
+      </head>
       <body
         className={`${archivo.variable} ${interTight.variable} ${jetBrainsMono.variable} ${archivoDisplay.variable} ${interBody.variable}`}
       >
@@ -68,7 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
 }
+
+
