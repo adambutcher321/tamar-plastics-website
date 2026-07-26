@@ -202,7 +202,88 @@
   letter-spacing: -0.01em;
   color: #ffffff;
   margin: 0;
-  max-width: 12ch;
+  max-width: 16ch;
+}
+
+/* ---------- Specs Left Column ---------- */
+
+.pd-specs-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pd-specs-summary {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #9c9ea8;
+  margin: 0;
+  max-width: 46ch;
+}
+
+.pd-specs-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pd-spec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(244, 121, 31, 0.08);
+  border: 1px solid rgba(244, 121, 31, 0.25);
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.pd-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f4791f;
+  flex-shrink: 0;
+}
+
+.pd-specs-highlights-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: rgba(242, 245, 244, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 4px;
+}
+
+.pd-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pd-highlight-icon {
+  font-size: 16px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pd-highlight-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.pd-highlight-text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #9c9ea8;
 }
 
 .pd-spec-row {

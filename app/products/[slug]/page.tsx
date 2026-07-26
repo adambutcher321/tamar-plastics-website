@@ -137,7 +137,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         {/* Technical Specifications — two column: statement headline + row list */}
         <section className="section">
           <div className="section-inner">
-            <ProductSpecsSection headline={`${product.name} Specifications`} rows={product.specTable} />
+            <ProductSpecsSection headline={`${product.name} Specifications`} rows={product.specTable} slug={product.slug} />
             {product.guarantee && (
               <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>
                 <span style={{ color: '#9C9EA8' }}>Warranty Protection:</span>
