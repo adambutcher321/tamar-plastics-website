@@ -58,7 +58,7 @@ export function Footer() {
             </p>
           </div>
           <div className="footer-enquiry-actions">
-            <Link href="/contact/" className="btn">
+            <Link href="/contact/" className="btn btn--orange">
               Contact our team
             </Link>
             <a href={`tel:${BUSINESS.phone}`} className="footer-tel-link">

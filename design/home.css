@@ -226,11 +226,11 @@ body {
   height: 42px;
   padding: 0 22px;
   border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--edge, #F4791F);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.005em;
   border: 0;
   display: inline-flex;
@@ -238,12 +238,15 @@ body {
   gap: 8px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 220ms ease, transform 220ms var(--ease);
+  box-shadow: 0 4px 14px rgba(244, 121, 31, 0.35);
+  transition: background 220ms ease, transform 220ms var(--ease), box-shadow 220ms ease;
 }
 
 .btn:hover {
-  background: #fff;
+  background: #e36a10;
+  color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 121, 31, 0.55);
 }
 
 .btn--orange,
