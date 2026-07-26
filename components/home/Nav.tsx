@@ -28,7 +28,7 @@ export function Nav() {
           <Link href="/contact/">Contact</Link>
         </li>
       </ul>
-      <Link href="/book-a-survey/" className="btn">
+      <Link href="/book-a-survey/" className="btn btn--orange">
         BOOK A SURVEY
       </Link>
     </nav>

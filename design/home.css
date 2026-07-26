@@ -246,6 +246,23 @@ body {
   transform: translateY(-1px);
 }
 
+.btn--orange,
+.btn-orange {
+  background: var(--edge, #F4791F);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(244, 121, 31, 0.35);
+  transition: background 220ms ease, transform 220ms var(--ease), box-shadow 220ms ease;
+}
+
+.btn--orange:hover,
+.btn-orange:hover {
+  background: #e36a10;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 121, 31, 0.55);
+}
+
 .btn--ghost {
   background: var(--glass);
   color: var(--text);
@@ -1211,13 +1228,15 @@ body {
   border: 1px solid var(--hairline);
   border-radius: 3px;
   text-decoration: none;
-  transition: color 200ms ease, border-color 200ms ease;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
 
 .footer-social-link:hover,
 .footer-social-link:focus-visible {
-  color: var(--text);
-  border-color: var(--glass-edge);
+  color: var(--edge, #F4791F);
+  border-color: var(--edge, #F4791F);
+  background: rgba(244, 121, 31, 0.12);
+  box-shadow: 0 0 12px rgba(244, 121, 31, 0.35);
 }
 
 /* ── Column labels (shared) ───────────────────────────────────────── */
