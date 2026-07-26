@@ -10,6 +10,20 @@
   position: relative;
 }
 
+/* ---------- Compact Section Spacing & Gaps ---------- */
+
+.pd-page .section {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .pd-page .section {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+}
+
 .pd-eyebrow {
   font-size: 13px;
   font-weight: 700;
@@ -290,43 +304,57 @@
   }
 }
 
-/* ---------- Enlarged Colour & Foil Swatches ---------- */
+/* ---------- Colour & Foil Swatches (Single Row Layout) ---------- */
 
 .pd-swatch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .pd-swatch-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .pd-swatch-grid::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .pd-swatch-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-radius: 12px;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
   background: rgba(242, 245, 244, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  flex: 0 0 auto;
+  white-space: nowrap;
   transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease, background 200ms ease;
 }
 
 .pd-swatch-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: #f4791f;
   background: rgba(244, 121, 31, 0.08);
 }
 
 .pd-swatch-disc {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
 }
 
 .pd-swatch-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #ffffff;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
