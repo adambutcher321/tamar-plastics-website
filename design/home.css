@@ -144,8 +144,6 @@ body {
 }
 
 .nav-inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -341,10 +339,9 @@ body {
 }
 
 .hero-wordmark-row {
-  max-width: var(--maxw);
-  margin: clamp(24px, 4vw, 48px) auto 0;
   width: 100%;
   padding: 0 var(--gutter);
+  margin-top: clamp(24px, 4vw, 48px);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -356,7 +353,7 @@ body {
   line-height: 0.82;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  margin: 0 -0.055em;
+  margin: 0;
   color: var(--text);
   white-space: nowrap;
 }
@@ -380,12 +377,11 @@ body {
 }
 
 .hero-body {
-  margin: auto auto 0;
+  margin-top: auto;
   padding: 0 var(--gutter) clamp(40px, 6vw, 72px);
   display: flex;
   flex-direction: column;
   gap: 28px;
-  max-width: var(--maxw);
   width: 100%;
   box-sizing: border-box;
 }
