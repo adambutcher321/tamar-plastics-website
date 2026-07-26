@@ -3,15 +3,15 @@ import { Reveal } from './Reveal';
 const STEPS = [
   {
     title: 'Ask',
-    body: 'Call or visit the counter in Saltash, or request a free survey if you want us to fit it.',
+    body: 'Call or visit our counter in Saltash, or request a free survey if you would like us to fit it.',
   },
   {
     title: 'Confirm',
-    body: 'Trade price on account, or a fixed homeowner quote — no obligation either way.',
+    body: 'Trade price on account or a fixed homeowner quote — with zero obligation either way.',
   },
   {
     title: 'Collect or fit',
-    body: 'Collect same day from the counter, or our installers fit it on the date agreed.',
+    body: 'Collect same-day from our Saltash counter, or our expert team fits it on the date agreed.',
   },
 ];
 

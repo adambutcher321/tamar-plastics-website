@@ -776,9 +776,9 @@ body {
 
 .process-step p {
   font-size: 14px;
-  line-height: 1.62;
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 30ch;
+  max-width: 36ch;
   margin: 0;
 }
 
