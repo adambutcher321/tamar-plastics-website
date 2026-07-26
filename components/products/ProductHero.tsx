@@ -70,17 +70,15 @@ export function ProductHero({ eyebrow, headline, paragraph, heroImage, heroAlt, 
         <motion.div
           className="pd-image-glow"
           aria-hidden="true"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          animate={{ opacity: reduceMotion ? 0.6 : [0.45, 0.75, 0.45], scale: reduceMotion ? 1 : [1, 1.05, 1] }}
+          transition={{ duration: 5, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
         />
         <motion.img
           src={heroImage}
           alt={heroAlt}
           className="pd-image"
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 16, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1, rotate: -2 }}
-          transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.2, ease: EASE }}
+          animate={{ y: reduceMotion ? 0 : [0, -6, 0], rotate: -3 }}
+          transition={{ duration: 6, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
         />
       </div>
     </div>
