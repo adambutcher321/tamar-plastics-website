@@ -138,13 +138,19 @@ body {
   width: 100%;
   box-sizing: border-box;
   z-index: 8;
+  padding: 20px var(--gutter);
+  transition: background 300ms var(--ease), backdrop-filter 300ms var(--ease), border-color 300ms var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--gap);
-  padding: 20px var(--gutter);
-  transition: background 300ms var(--ease), backdrop-filter 300ms var(--ease), border-color 300ms var(--ease);
-  border-bottom: 1px solid transparent;
 }
 
 .nav-mark,
@@ -335,9 +341,12 @@ body {
 }
 
 .hero-wordmark-row {
+  max-width: var(--maxw);
+  margin: clamp(24px, 4vw, 48px) auto 0;
+  width: 100%;
   padding: 0 var(--gutter);
-  margin-top: clamp(24px, 4vw, 48px);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .hero-wordmark {
@@ -371,12 +380,14 @@ body {
 }
 
 .hero-body {
-  margin-top: auto;
+  margin: auto auto 0;
   padding: 0 var(--gutter) clamp(40px, 6vw, 72px);
   display: flex;
   flex-direction: column;
   gap: 28px;
   max-width: var(--maxw);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-headline-row {
