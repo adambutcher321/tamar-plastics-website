@@ -16,12 +16,14 @@
 
 .contact-heading {
   margin-top: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   max-width: 22ch;
 }
 
 .contact-intro {
-  max-width: 46ch;
+  max-width: 54ch;
+  text-align: left;
+  margin-top: 14px;
   margin-bottom: 0;
 }
 
