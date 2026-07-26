@@ -11,6 +11,7 @@ import { buildServiceSchema, buildFaqSchema, buildBreadcrumbSchema } from '@/lib
 import { ProductHero, type ProductHeroStat } from '@/components/products/ProductHero';
 import { ProductSpecsSection } from '@/components/products/ProductSpecsSection';
 import { ProductFAQSection } from '@/components/products/ProductFAQSection';
+import { getColourStyle } from '@/lib/colours';
 import '@/design/home.css';
 import './product-detail.css';
 
@@ -179,13 +180,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <h2 className="pd-specs-headline" style={{ marginBottom: '24px', maxWidth: 'none' }}>
                 Available Foils &amp; Finishes
               </h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px' }}>
-                {product.colours.map((colour) => (
-                  <div key={colour} style={{ padding: '14px 0', display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', flexShrink: 0 }} />
-                    <span style={{ fontSize: '13px', color: '#ffffff', fontWeight: 500 }}>{colour}</span>
-                  </div>
-                ))}
+              <div className="pd-swatch-grid">
+                {product.colours.map((colour) => {
+                  const style = getColourStyle(colour);
+                  return (
+                    <div key={colour} className="pd-swatch-card">
+                      <div
+                        className="pd-swatch-disc"
+                        style={{
+                          background: style.background,
+                          border: style.border,
+                        }}
+                      />
+                      <span className="pd-swatch-label">{colour}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>
