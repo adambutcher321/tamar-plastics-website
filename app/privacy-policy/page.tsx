@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
                 This Privacy Policy explains how <strong>Tamar Plastics Ltd</strong> collects,
                 uses, discloses, and protects your personal information when you visit our website,
                 contact our trade counter, or use our supply and installation services in Saltash,
-                Cornwall, Plymouth, and the surrounding areas.
+                Cornwall, Devon, and the surrounding areas.
               </p>
 
               {/* ── Section 1: Who we are ─────────────────────────────── */}

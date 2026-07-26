@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const ROOFLINE_CONTENT: ProductPageContent = {
   slug: 'roofline',
   name: 'Roofline',
-  h1: 'uPVC Roofline, Fascias & Soffits in Saltash & Plymouth',
+  h1: 'uPVC Roofline, Fascias & Soffits in Saltash, Cornwall & Devon',
   tagline: 'Heavy-duty BBA-certified fascias, ventilated soffits, bargeboards, and dry verge systems.',
   heroImage: '/images/products/roofline.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const ROOFLINE_CONTENT: ProductPageContent = {
     'Part L Ventilation Compliant',
   ],
   answerFirstSummary:
-    'BBA-approved 16–18mm heavy-duty uPVC replacement fascias, hollow and solid soffits, bargeboards, and dry verge systems supplied in Saltash and installed across Plymouth and Cornwall. Built to replace rotting timber roofline completely without backing boards, our lead-free cellular PVC systems feature continuous over-fascia ventilation to protect roof rafters from rot and condensation. In stock for immediate trade counter pickup or complete fitting.',
+    'BBA-approved 16–18mm heavy-duty uPVC replacement fascias, hollow and solid soffits, bargeboards, and dry verge systems supplied in Saltash and installed across Cornwall and Devon. Built to replace rotting timber roofline completely without backing boards, our lead-free cellular PVC systems feature continuous over-fascia ventilation to protect roof rafters from rot and condensation. In stock for immediate trade counter pickup or complete fitting.',
   guarantee: '20-Year Discoloration & Warping Guarantee',
   leadTime: 'Full roofline stock held in warehouse for immediate trade pickup; 1–2 days for fitted scheduling.',
   specTable: [

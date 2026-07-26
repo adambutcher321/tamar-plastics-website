@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const WINDOWS_CONTENT: ProductPageContent = {
   slug: 'windows',
   name: 'Windows',
-  h1: 'uPVC Windows in Saltash, Plymouth & Cornwall',
+  h1: 'uPVC Windows in Saltash, Cornwall & Devon',
   tagline: 'Energy A-Rated casement, heritage flush sash, sliding sash, and bay windows.',
   heroImage: '/images/products/windows.png',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const WINDOWS_CONTENT: ProductPageContent = {
     'Heritage Flush Sash Options',
   ],
   answerFirstSummary:
-    'Energy A-Rated uPVC windows engineered for maximum thermal performance and security across Saltash, Plymouth, and Cornwall. Available in classic casement, heritage flush sash, vertical sliding sash, and tilt & turn styles. Featuring multi-chamber lead-free profiles, argon-filled Low-E double or triple glazing (U-values down to 0.8 W/m²K), and Yale multi-point shootbolt locks. Supplied direct to trade or fully fitted with a 10-year guarantee.',
+    'Energy A-Rated uPVC windows engineered for maximum thermal performance and security across Saltash, Cornwall, and Devon. Available in classic casement, heritage flush sash, vertical sliding sash, and tilt & turn styles. Featuring multi-chamber lead-free profiles, argon-filled Low-E double or triple glazing (U-values down to 0.8 W/m²K), and Yale multi-point shootbolt locks. Supplied direct to trade or fully fitted with a 10-year guarantee.',
   guarantee: '10-Year Comprehensive Frame & Sealed Unit Guarantee',
   leadTime: 'Standard white casement 7–10 days; flush sash & bespoke foil colors 2–3 weeks.',
   specTable: [

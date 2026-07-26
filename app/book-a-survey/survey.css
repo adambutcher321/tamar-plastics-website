@@ -35,7 +35,7 @@
 .survey-intro {
   font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.6;
-  color: var(--text-muted, rgba(242, 245, 244, 0.8));
+  color: var(--text-muted, rgba(156, 158, 168, 0.8));
   margin: 0 auto 24px;
   max-width: 52ch;
 }
@@ -45,7 +45,7 @@
   align-items: center;
   gap: 12px;
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.14));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
   border-radius: var(--radius, 4px);
   padding: 12px 18px;
   font-size: 14px;
@@ -55,7 +55,7 @@
 .survey-tel-link {
   font-family: var(--font-mono, monospace);
   font-weight: 600;
-  color: var(--edge, #F58A2E);
+  color: var(--edge, #F4791F);
   text-decoration: none;
 }
 
@@ -67,7 +67,7 @@
 
 .survey-expect-box {
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.14));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
   border-radius: var(--radius, 4px);
   padding: 24px;
   max-width: 800px;
@@ -84,7 +84,7 @@
   color: var(--text, #F2F5F4);
   margin: 0 0 16px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.1));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.1));
 }
 
 .survey-steps-list {
@@ -101,15 +101,15 @@
   gap: 14px;
   font-size: 13px;
   line-height: 1.5;
-  color: var(--text-muted, rgba(242, 245, 244, 0.75));
+  color: var(--text-muted, rgba(156, 158, 168, 0.75));
 }
 
 .survey-step-num {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(245, 138, 46, 0.15);
-  color: var(--edge, #F58A2E);
+  background: rgba(244, 121, 31, 0.15);
+  color: var(--edge, #F4791F);
   font-weight: 700;
   font-size: 12px;
   display: flex;
@@ -145,7 +145,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   display: block;
   margin-bottom: 8px;
 }
@@ -153,14 +153,14 @@
 .survey-progress-track {
   width: 100%;
   height: 4px;
-  background: rgba(242, 245, 244, 0.1);
+  background: rgba(156, 158, 168, 0.1);
   border-radius: 2px;
   overflow: hidden;
 }
 
 .survey-progress-fill {
   height: 100%;
-  background: var(--edge, #F58A2E);
+  background: var(--edge, #F4791F);
   transition: width 300ms var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
@@ -168,7 +168,7 @@
 
 .survey-step-panel {
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.14));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
   border-radius: var(--radius, 4px);
   padding: clamp(24px, 4vw, 40px);
   max-width: 800px;
@@ -185,7 +185,7 @@
 
 .survey-step-desc {
   font-size: 14px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   margin: 0 0 28px;
   line-height: 1.5;
 }
@@ -206,8 +206,8 @@
 }
 
 .survey-category-card {
-  background: rgba(242, 245, 244, 0.03);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  background: rgba(156, 158, 168, 0.03);
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
   border-radius: 4px;
   padding: 16px;
   cursor: pointer;
@@ -218,13 +218,13 @@
 }
 
 .survey-category-card:hover {
-  background: rgba(242, 245, 244, 0.06);
-  border-color: var(--text-muted, rgba(242, 245, 244, 0.3));
+  background: rgba(156, 158, 168, 0.06);
+  border-color: var(--text-muted, rgba(156, 158, 168, 0.3));
 }
 
 .survey-category-card--active {
-  background: rgba(245, 138, 46, 0.12);
-  border-color: var(--edge, #F58A2E);
+  background: rgba(244, 121, 31, 0.12);
+  border-color: var(--edge, #F4791F);
 }
 
 .survey-category-title {
@@ -235,7 +235,7 @@
 
 .survey-category-blurb {
   font-size: 12px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.6));
+  color: var(--text-muted, rgba(156, 158, 168, 0.6));
   line-height: 1.4;
 }
 
@@ -266,12 +266,12 @@
 }
 
 .survey-required {
-  color: var(--edge, #F58A2E);
+  color: var(--edge, #F4791F);
 }
 
 .survey-hint {
   font-size: 12px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.6));
+  color: var(--text-muted, rgba(156, 158, 168, 0.6));
   margin: -2px 0 8px;
   line-height: 1.4;
 }
@@ -281,7 +281,7 @@
 .survey-select {
   width: 100%;
   background: var(--ink-deep, #060908);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.16));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.16));
   border-radius: var(--radius, 4px);
   padding: 12px 14px;
   font-size: 14px;
@@ -294,8 +294,8 @@
 .survey-textarea:focus,
 .survey-select:focus {
   outline: 0;
-  border-color: var(--edge, #F58A2E);
-  box-shadow: 0 0 0 2px var(--edge-glow, rgba(245, 138, 46, 0.25));
+  border-color: var(--edge, #F4791F);
+  box-shadow: 0 0 0 2px var(--edge-glow, rgba(244, 121, 31, 0.25));
 }
 
 /* ── Radios & Checkboxes ────────────────────────────────────────────────── */
@@ -314,13 +314,13 @@
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.8));
+  color: var(--text-muted, rgba(156, 158, 168, 0.8));
   cursor: pointer;
 }
 
 .survey-radio-option input,
 .survey-checkbox-option input {
-  accent-color: var(--edge, #F58A2E);
+  accent-color: var(--edge, #F4791F);
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -335,7 +335,7 @@
   gap: 16px;
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid var(--hairline, rgba(242, 245, 244, 0.1));
+  border-top: 1px solid var(--hairline, rgba(156, 158, 168, 0.1));
 }
 
 .survey-btn {
@@ -369,17 +369,17 @@
 .survey-btn--secondary {
   background: transparent;
   color: var(--text, #F2F5F4);
-  border-color: var(--glass-edge, rgba(242, 245, 244, 0.24));
+  border-color: var(--glass-edge, rgba(156, 158, 168, 0.24));
 }
 
 .survey-btn--secondary:hover {
-  background: rgba(242, 245, 244, 0.08);
-  border-color: var(--text-muted, rgba(242, 245, 244, 0.4));
+  background: rgba(156, 158, 168, 0.08);
+  border-color: var(--text-muted, rgba(156, 158, 168, 0.4));
 }
 
 .survey-btn--ghost {
   background: transparent;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   border-color: transparent;
 }
 
@@ -398,8 +398,8 @@
 }
 
 .survey-review-card {
-  background: rgba(242, 245, 244, 0.03);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  background: rgba(156, 158, 168, 0.03);
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
   border-radius: 4px;
   padding: 18px;
 }
@@ -410,7 +410,7 @@
   justify-content: space-between;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.08));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.08));
 }
 
 .survey-review-header h3 {
@@ -424,7 +424,7 @@
 .survey-change-btn {
   background: transparent;
   border: 0;
-  color: var(--edge, #F58A2E);
+  color: var(--edge, #F4791F);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -446,7 +446,7 @@
 }
 
 .survey-review-dl dt {
-  color: var(--text-faint, rgba(242, 245, 244, 0.5));
+  color: var(--text-faint, rgba(156, 158, 168, 0.5));
 }
 
 .survey-review-dl dd {
@@ -458,7 +458,7 @@
 
 .survey-success-card {
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.16));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.16));
   border-radius: var(--radius, 4px);
   padding: clamp(32px, 5vw, 56px);
   max-width: 800px;
@@ -490,15 +490,15 @@
 
 .survey-success-text {
   font-size: 15px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.8));
+  color: var(--text-muted, rgba(156, 158, 168, 0.8));
   line-height: 1.6;
   max-width: 54ch;
   margin: 0 auto 32px;
 }
 
 .survey-summary-box {
-  background: rgba(242, 245, 244, 0.03);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  background: rgba(156, 158, 168, 0.03);
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
   border-radius: 4px;
   padding: 20px;
   margin-bottom: 32px;
@@ -511,10 +511,10 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   margin: 0 0 12px;
   padding-bottom: 6px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.08));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.08));
 }
 
 .survey-summary-dl {
@@ -532,7 +532,7 @@
 }
 
 .survey-summary-dl dt {
-  color: var(--text-faint, rgba(242, 245, 244, 0.5));
+  color: var(--text-faint, rgba(156, 158, 168, 0.5));
 }
 
 .survey-summary-dl dd {
@@ -543,8 +543,8 @@
 
 .survey-next-steps {
   text-align: left;
-  background: rgba(245, 138, 46, 0.06);
-  border-left: 3px solid var(--edge, #F58A2E);
+  background: rgba(244, 121, 31, 0.06);
+  border-left: 3px solid var(--edge, #F4791F);
   padding: 16px 20px;
   border-radius: 0 4px 4px 0;
   margin-bottom: 32px;
@@ -562,7 +562,7 @@
   margin: 0;
   padding-left: 18px;
   font-size: 13px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.8));
+  color: var(--text-muted, rgba(156, 158, 168, 0.8));
   line-height: 1.5;
 }
 
@@ -579,7 +579,7 @@
 .survey-expect-section {
   padding-top: clamp(48px, 6vw, 80px);
   padding-bottom: clamp(64px, 8vw, 110px);
-  border-top: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  border-top: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
 }
 
 .survey-expect-inner {
@@ -606,7 +606,7 @@
 
 .survey-expect-card {
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
   border-radius: var(--radius, 4px);
   padding: 24px;
 }
@@ -622,6 +622,6 @@
 .survey-expect-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-muted, rgba(242, 245, 244, 0.75));
+  color: var(--text-muted, rgba(156, 158, 168, 0.75));
   margin: 0;
 }

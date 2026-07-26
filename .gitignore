@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# source-quality media masters (not web-served; keep locally / in cloud storage)
+/media-masters
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

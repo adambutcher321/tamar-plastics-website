@@ -20,9 +20,15 @@ export function ProductGrid() {
         <div className="products-grid">
           {PRODUCT_CATEGORIES.map((category, index) => (
             <Reveal key={category.slug} delayMs={index * 70}>
-              <Link href={category.href} className="product-card">
+              <Link href={category.href} className="product-card" data-slug={category.slug}>
                 <span className="product-card-icon-badge">
-                  <img className="product-card-icon" src={category.iconSrc} alt="" aria-hidden="true" />
+                  <img
+                    className="product-card-cutout"
+                    src={category.cutoutSrc}
+                    alt={category.cutoutAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </span>
                 <h3 className="h3">{category.name}</h3>
                 <p>{category.blurb}</p>

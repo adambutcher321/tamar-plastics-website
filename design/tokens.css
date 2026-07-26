@@ -1,18 +1,22 @@
 :root {
-  --ink: #0B0F0E;
-  --ink-raised: #121817;
-  --ink-deep: #060908;
-  --paper: #F2F5F4;
-  --text: #F2F5F4;
-  --text-muted: rgba(242, 245, 244, 0.58);
-  --text-faint: rgba(242, 245, 244, 0.42);
-  --hairline: rgba(242, 245, 244, 0.12);
-  --glass: rgba(242, 245, 244, 0.08);
-  --glass-edge: rgba(242, 245, 244, 0.16);
+  /* Navy-black carries every dark section — deliberately not flat/pure
+     black. --ink-raised/--ink-deep are lighter/darker steps off the same
+     navy hue, not neutral greys, so raised panels read as "the same room,
+     different depth" rather than a different material. */
+  --ink: #1B1E29;
+  --ink-raised: #232733;
+  --ink-deep: #14161F;
+  --paper: #FFFFFF;
+  --text: #FFFFFF;
+  --text-muted: #9C9EA8;
+  --text-faint: rgba(156, 158, 168, 0.7);
+  --hairline: rgba(156, 158, 168, 0.18);
+  --glass: rgba(156, 158, 168, 0.08);
+  --glass-edge: rgba(156, 158, 168, 0.18);
 
-  --edge: #F58A2E;
-  --edge-deep: #C4541C;
-  --edge-glow: rgba(245, 138, 46, 0.28);
+  --edge: #F4791F;
+  --edge-deep: #C36119;
+  --edge-glow: rgba(244, 121, 31, 0.28);
 
   --font-display: 'proxima-nova', sans-serif;
   --font-body: var(--font-inter-2), 'Inter', sans-serif;

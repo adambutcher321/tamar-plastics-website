@@ -11,7 +11,7 @@ import './contact.css';
 export const metadata: Metadata = {
   title: 'Contact Us — Tamar Plastics Ltd, Saltash',
   description:
-    'Get in touch with Tamar Plastics Ltd for a quote on uPVC windows, doors, roofline, guttering and more. Trade counter in Saltash, free surveys across Cornwall and Plymouth.',
+    'Get in touch with Tamar Plastics Ltd for a quote on uPVC windows, doors, roofline, guttering and more. Trade counter in Saltash, free surveys across Cornwall and Devon.',
 };
 
 const HOURS = BUSINESS.hours;

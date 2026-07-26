@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const TRIMS_FIXINGS_CONTENT: ProductPageContent = {
   slug: 'trims-fixings',
   name: 'Trims & Fixings',
-  h1: 'uPVC Trims, Window Boards & Fixings in Saltash & Plymouth',
+  h1: 'uPVC Trims, Window Boards & Fixings in Saltash, Cornwall & Devon',
   tagline: 'Architrave trims, window boards, low-modulus silicones, fixings, foams, and cleaners.',
   heroImage: '/images/products/trims-fixings.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const TRIMS_FIXINGS_CONTENT: ProductPageContent = {
     'Full Trade Stock in Saltash',
   ],
   answerFirstSummary:
-    'Complete range of uPVC finishing trims, architraves, window boards, low-modulus silicone sealants, expanding foams, frame fixings, and solvent cleaners stocked at our Saltash trade counter. Essential for window installers, roofline contractors, and builders across Plymouth and Cornwall. Featuring color-matched trim profiles in Anthracite, Black Ash, Oak, and White for a professional finish on every installation.',
+    'Complete range of uPVC finishing trims, architraves, window boards, low-modulus silicone sealants, expanding foams, frame fixings, and solvent cleaners stocked at our Saltash trade counter. Essential for window installers, roofline contractors, and builders across Cornwall and Devon. Featuring color-matched trim profiles in Anthracite, Black Ash, Oak, and White for a professional finish on every installation.',
   guarantee: '10-Year Color-Fastness & Sealant Elasticity Warranty',
   leadTime: '100% of trim profiles, sealants, foams, and fixings kept in full warehouse stock for immediate trade pickup.',
   specTable: [

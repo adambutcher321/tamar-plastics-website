@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-tamar-orange: #F58A2E;
-  --color-tamar-black: #231F20;
+  --color-tamar-orange: #F4791F;
+  --color-tamar-black: #1B1E29;
   --color-ink-800: #35302F;
   --color-ink-600: #5C5654;
   --color-ink-400: #8E8785;

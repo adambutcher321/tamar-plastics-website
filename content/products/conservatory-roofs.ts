@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const CONSERVATORY_ROOFS_CONTENT: ProductPageContent = {
   slug: 'conservatory-roofs',
   name: 'Conservatory Roofs',
-  h1: 'Solid Conservatory Roofs & Roof Lanterns in Saltash & Plymouth',
+  h1: 'Solid Conservatory Roofs & Roof Lanterns in Saltash, Cornwall & Devon',
   tagline: 'Lightweight solid replacement warm roofs, aluminium roof lanterns, and glass upgrades.',
   heroImage: '/images/products/conservatory-roofs.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const CONSERVATORY_ROOFS_CONTENT: ProductPageContent = {
     'JHAI Building Control Approved',
   ],
   answerFirstSummary:
-    'Lightweight solid warm roof replacements, aluminium roof lanterns, and high-performance solar-control glass roof upgrades for conservatories across Saltash, Plymouth, and Cornwall. Transforming cold, noisy polycarbonate conservatories into year-round living spaces, our warm roof systems achieve an extraordinary 0.15 W/m²K U-value with pre-approved Building Control compliance. Complete supply and fit or trade roof kit supply.',
+    'Lightweight solid warm roof replacements, aluminium roof lanterns, and high-performance solar-control glass roof upgrades for conservatories across Saltash, Cornwall, and Devon. Transforming cold, noisy polycarbonate conservatories into year-round living spaces, our warm roof systems achieve an extraordinary 0.15 W/m²K U-value with pre-approved Building Control compliance. Complete supply and fit or trade roof kit supply.',
   guarantee: '10-Year Structural Guarantee & 40-Year Tile Warranty',
   leadTime: 'Bespoke roof lantern kits 2 weeks; solid warm replacement roof kits 2–3 weeks.',
   specTable: [

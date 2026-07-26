@@ -28,7 +28,7 @@
   align-items: center;
   gap: 16px;
   font-size: 13px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.6));
+  color: var(--text-muted, rgba(156, 158, 168, 0.6));
   flex-wrap: wrap;
 }
 
@@ -39,8 +39,8 @@
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 999px;
-  background: rgba(245, 138, 46, 0.15);
-  color: var(--edge, #F58A2E);
+  background: rgba(244, 121, 31, 0.15);
+  color: var(--edge, #F4791F);
 }
 
 /* ── Content Layout (2 Columns: TOC Sidebar + Article) ───────────────────── */
@@ -74,7 +74,7 @@
   position: sticky;
   top: 100px;
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
   border-radius: var(--radius, 4px);
   padding: 20px;
   max-height: calc(100vh - 120px);
@@ -94,10 +94,10 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-faint, rgba(242, 245, 244, 0.45));
+  color: var(--text-faint, rgba(156, 158, 168, 0.45));
   margin: 0 0 14px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.1));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.1));
 }
 
 .legal-toc-list {
@@ -112,7 +112,7 @@
 .legal-toc-link {
   display: block;
   font-size: 13px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   text-decoration: none;
   line-height: 1.4;
   transition: color 150ms ease, transform 150ms ease;
@@ -131,7 +131,7 @@
   max-width: 820px;
   font-size: 15px;
   line-height: 1.7;
-  color: var(--text-muted, rgba(242, 245, 244, 0.8));
+  color: var(--text-muted, rgba(156, 158, 168, 0.8));
 }
 
 .legal-lead {
@@ -140,7 +140,7 @@
   color: var(--text, #F2F5F4);
   margin-bottom: 32px;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.12));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
 }
 
 .legal-section {
@@ -187,18 +187,18 @@
 }
 
 .legal-article a:hover {
-  color: var(--edge, #F58A2E);
+  color: var(--edge, #F4791F);
 }
 
 /* ── Editorial / Business Placeholder Box ───────────────────────────────── */
 
 .legal-placeholder-box {
-  background: rgba(245, 138, 46, 0.08);
-  border: 1px solid rgba(245, 138, 46, 0.25);
+  background: rgba(244, 121, 31, 0.08);
+  border: 1px solid rgba(244, 121, 31, 0.25);
   border-radius: 4px;
   padding: 12px 16px;
   font-size: 13px;
-  color: var(--edge, #F58A2E);
+  color: var(--edge, #F4791F);
   margin: 16px 0;
   display: inline-block;
 }
@@ -213,7 +213,7 @@
   width: 100%;
   overflow-x: auto;
   margin: 24px 0 32px;
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.14));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
   border-radius: 4px;
   background: var(--ink-raised, #121817);
 }
@@ -232,14 +232,14 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   color: var(--text, #F2F5F4);
-  background: rgba(242, 245, 244, 0.05);
+  background: rgba(156, 158, 168, 0.05);
   padding: 12px 16px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.14));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
 }
 
 .legal-table td {
   padding: 14px 16px;
-  border-bottom: 1px solid var(--hairline, rgba(242, 245, 244, 0.08));
+  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.08));
   vertical-align: top;
   line-height: 1.5;
 }
@@ -251,7 +251,7 @@
 .legal-table-code {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
-  background: rgba(242, 245, 244, 0.08);
+  background: rgba(156, 158, 168, 0.08);
   padding: 2px 6px;
   border-radius: 3px;
   color: var(--text, #F2F5F4);
@@ -261,7 +261,7 @@
 
 .legal-contact-card {
   background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(242, 245, 244, 0.16));
+  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.16));
   border-radius: 4px;
   padding: 24px;
   margin-top: 40px;
@@ -277,7 +277,7 @@
 
 .legal-contact-card p {
   font-size: 14px;
-  color: var(--text-muted, rgba(242, 245, 244, 0.7));
+  color: var(--text-muted, rgba(156, 158, 168, 0.7));
   margin: 0 0 16px;
 }
 
@@ -293,7 +293,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-faint, rgba(242, 245, 244, 0.5));
+  color: var(--text-faint, rgba(156, 158, 168, 0.5));
   margin-bottom: 2px;
 }
 

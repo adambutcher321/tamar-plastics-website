@@ -11,7 +11,7 @@ import './survey.css';
 export const metadata: Metadata = {
   title: 'Book a Survey | Tamar Plastics, Saltash',
   description:
-    'Arrange a visit to discuss your project, check practical details and take accurate measurements. Site surveys across Saltash, Cornwall and Plymouth.',
+    'Arrange a visit to discuss your project, check practical details and take accurate measurements. Site surveys across Saltash, Cornwall and Devon.',
 };
 
 export default function BookASurveyPage() {

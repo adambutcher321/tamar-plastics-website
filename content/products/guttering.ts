@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const GUTTERING_CONTENT: ProductPageContent = {
   slug: 'guttering',
   name: 'Guttering',
-  h1: 'uPVC & Cast-Iron Effect Guttering in Saltash & Plymouth',
+  h1: 'uPVC & Cast-Iron Effect Guttering in Saltash, Cornwall & Devon',
   tagline: 'High-capacity Deepflow, Ogee, Square, Half-Round, and heritage Cast-Iron rainwater systems.',
   heroImage: '/images/products/guttering.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const GUTTERING_CONTENT: ProductPageContent = {
     '10-Year Leak-Free Guarantee',
   ],
   answerFirstSummary:
-    'High-performance uPVC, Deepflow, Ogee, Square, Half-Round, and heritage Cast-Iron effect rainwater guttering systems supplied from Saltash across Plymouth and Cornwall. Engineered for high rainfall coastal catchments, our Deepflow systems handle up to 4.9 litres per second with fewer downpipes. Equipped with EPDM seal gaskets and clips for thermal expansion. Trade counter stock held in all profiles.',
+    'High-performance uPVC, Deepflow, Ogee, Square, Half-Round, and heritage Cast-Iron effect rainwater guttering systems supplied from Saltash across Cornwall and Devon. Engineered for high rainfall coastal catchments, our Deepflow systems handle up to 4.9 litres per second with fewer downpipes. Equipped with EPDM seal gaskets and clips for thermal expansion. Trade counter stock held in all profiles.',
   guarantee: '10-Year Water-Tightness & Color-Fast Guarantee',
   leadTime: 'All standard profiles in stock for same-day trade pickup; Cast-Iron effect specialty lines 24–48 hours.',
   specTable: [

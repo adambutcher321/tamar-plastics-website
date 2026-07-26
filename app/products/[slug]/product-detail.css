@@ -1,0 +1,278 @@
+/* Product detail page — bespoke redesign, deliberately scoped to .pd-page
+   (not the shared design/home.css tokens) since the brief specifies exact
+   values distinct from the site's general dark theme. Everything here is
+   prefixed pd- and lives only under app/products/[slug]/, so it can't leak
+   into or be affected by any other page. */
+
+.pd-page {
+  background: #12141c;
+  color: #ffffff;
+  position: relative;
+}
+
+.pd-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f4791f;
+  margin: 0 0 16px;
+}
+
+.pd-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 5.5vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 20px;
+  max-width: 14ch;
+}
+
+.pd-para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #9c9ea8;
+  max-width: 46ch;
+  margin: 0 0 32px;
+}
+
+/* ---------- CTAs ---------- */
+
+.pd-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.pd-btn {
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), background 200ms ease, border-color 200ms ease;
+}
+
+.pd-btn:hover {
+  transform: scale(1.045);
+}
+
+.pd-btn:focus-visible {
+  outline: 2px solid #f4791f;
+  outline-offset: 3px;
+}
+
+.pd-btn--primary {
+  background: #f4791f;
+  color: #12141c;
+  border: 1px solid #f4791f;
+}
+
+.pd-btn--primary:hover {
+  background: #ff8a34;
+}
+
+.pd-btn--secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.pd-btn--secondary:hover {
+  border-color: #f4791f;
+  color: #f4791f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-btn:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Inline stats ---------- */
+
+.pd-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.pd-stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1;
+  color: #f4791f;
+}
+
+.pd-stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9c9ea8;
+}
+
+/* ---------- Hero image: bleeds past its column, no box ---------- */
+
+.pd-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.pd-image-cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.pd-image-glow {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 121, 31, 0.4) 0%, rgba(244, 121, 31, 0) 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pd-image {
+  /* rotation is applied via Framer Motion's animate prop (combined with the
+     float loop's y-offset) rather than here — a separate CSS transform on
+     this element would be clobbered by Framer Motion's own inline
+     transform the moment the animation starts. */
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 900px) {
+  .pd-image {
+    max-width: 130%;
+  }
+}
+
+/* ---------- Specs: two-column, headline + plain row list ---------- */
+
+.pd-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+.pd-specs-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0;
+  max-width: 12ch;
+}
+
+.pd-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-spec-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-spec-label {
+  font-size: 14px;
+  color: #9c9ea8;
+  flex-shrink: 0;
+}
+
+.pd-spec-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* ---------- FAQ: no card, thin top-border rows ---------- */
+
+.pd-faq-list {
+  max-width: 760px;
+}
+
+.pd-faq-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-faq-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.pd-faq-question {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pd-faq-plus {
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #f4791f;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pd-faq-trigger[aria-expanded='true'] .pd-faq-plus {
+  transform: rotate(45deg);
+}
+
+.pd-faq-answer {
+  padding: 0 0 26px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #9c9ea8;
+  max-width: 68ch;
+}
+
+@media (max-width: 640px) {
+  .pd-faq-question {
+    font-size: 16px;
+  }
+}

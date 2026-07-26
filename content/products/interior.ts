@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const INTERIOR_CONTENT: ProductPageContent = {
   slug: 'interior',
   name: 'Interior',
-  h1: 'Waterproof Wall Panelling & Interior Plastics in Saltash & Plymouth',
+  h1: 'Waterproof Wall Panelling & Interior Plastics in Saltash, Cornwall & Devon',
   tagline: '100% waterproof shower wall panels, PVC ceiling cladding, SPC flooring, and interior trims.',
   heroImage: '/images/products/interior.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const INTERIOR_CONTENT: ProductPageContent = {
     '10-Year Residential Guarantee',
   ],
   answerFirstSummary:
-    '100% waterproof PVC shower wall panelling, ceiling cladding, acoustic wall slats, SPC vinyl click flooring, and plastic skirting boards supplied from Saltash across Plymouth and Cornwall. Designed as a luxury, mould-free alternative to traditional bathroom tiles, our panelling systems clip together seamlessly with tongue-and-groove joints without messy grouting. Full range of trims and adhesive in stock.',
+    '100% waterproof PVC shower wall panelling, ceiling cladding, acoustic wall slats, SPC vinyl click flooring, and plastic skirting boards supplied from Saltash across Cornwall and Devon. Designed as a luxury, mould-free alternative to traditional bathroom tiles, our panelling systems clip together seamlessly with tongue-and-groove joints without messy grouting. Full range of trims and adhesive in stock.',
   guarantee: '10-Year Waterproof & Hygiene Guarantee',
   leadTime: 'All popular marble, concrete, and tile-effect wall panels in stock for same-day trade pickup.',
   specTable: [

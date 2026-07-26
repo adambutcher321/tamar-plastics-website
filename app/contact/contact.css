@@ -200,7 +200,7 @@
 
   /* Appearance */
   background: var(--ink-raised);
-  border: 1px solid rgba(242, 245, 244, 0.16);
+  border: 1px solid rgba(156, 158, 168, 0.16);
   border-radius: var(--radius);
   color: var(--text);
   font-family: var(--font-body);
@@ -228,7 +228,7 @@
 .cf-input:hover,
 .cf-select:hover,
 .cf-textarea:hover {
-  border-color: rgba(242, 245, 244, 0.28);
+  border-color: rgba(156, 158, 168, 0.28);
 }
 
 /* Focus — orange outline, matching the site-wide :focus-visible rule */
@@ -309,7 +309,7 @@
   width: 18px;
   height: 18px;
   margin-top: 2px;
-  border: 1px solid rgba(242, 245, 244, 0.28);
+  border: 1px solid rgba(156, 158, 168, 0.28);
   border-radius: 2px;
   background: var(--ink-raised);
   cursor: pointer;
@@ -326,7 +326,7 @@
 }
 
 .cf-checkbox:hover {
-  border-color: rgba(242, 245, 244, 0.48);
+  border-color: rgba(156, 158, 168, 0.48);
 }
 
 .cf-consent[data-error="true"] .cf-checkbox {

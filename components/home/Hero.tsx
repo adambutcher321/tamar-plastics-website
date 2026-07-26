@@ -18,11 +18,11 @@ export function Hero() {
         <div className="hero-headline-row">
           <div>
             <p className="eyebrow">Saltash, Cornwall · Formerly Carlton Plastics</p>
-            <h1 className="hero-headline">IN STOCK. ON SITE. DONE.</h1>
+            <h1 className="hero-headline">IN STOCK. ON SITE. JOB DONE.</h1>
           </div>
           <p className="hero-para hero-para--scrim">
             uPVC windows, doors and roofline supplied over the counter in Saltash, or fitted by our
-            own installers across Cornwall and Plymouth.
+            own installers across Cornwall and Devon.
           </p>
         </div>
 

@@ -44,6 +44,41 @@ body {
   animation: hero-img-in 1400ms var(--ease) both;
 }
 
+/* The <img> poster is always in the DOM (not conditionally rendered) so the
+   reduced-motion swap below is a pure CSS display toggle — no client/server
+   markup mismatch, no JS needed to decide what to render on first paint. */
+.home-bg-poster {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.home-bg-pulses {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Positive, not negative: .home-bg-wrap's own z-index:-2 makes it a
+     stacking context for its children, so this is relative to the video/
+     poster/wash *inside that context* (where they sit at the default
+     "auto" level) — not relative to the rest of the page. A negative value
+     here painted the pulses behind the (opaque) video, i.e. invisible. */
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-bg-video {
+    display: none;
+  }
+  .home-bg-poster {
+    display: block;
+  }
+  .home-bg-pulses {
+    display: none;
+  }
+}
+
 .home-bg-wash {
   position: fixed;
   inset: 0;
@@ -220,8 +255,8 @@ body {
 }
 
 .btn--ghost:hover {
-  background: rgba(242, 245, 244, 0.14);
-  border-color: rgba(242, 245, 244, 0.28);
+  background: rgba(156, 158, 168, 0.14);
+  border-color: rgba(156, 158, 168, 0.28);
   transform: translateY(-1px);
 }
 
@@ -266,7 +301,7 @@ body {
 
 .ghost-pill:hover {
   color: var(--text);
-  border-color: rgba(242, 245, 244, 0.28);
+  border-color: rgba(156, 158, 168, 0.28);
 }
 
 /* ---------- Hero ---------- */
@@ -335,12 +370,12 @@ body {
 .hero-headline {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(30px, 4.2vw, 62px);
+  font-size: clamp(12px, 4.3vw, 62px);
   line-height: 1.0;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   margin: 0;
-  max-width: 14ch;
+  white-space: nowrap;
 }
 
 .hero-para {
@@ -350,6 +385,7 @@ body {
   color: var(--text);
   max-width: 38ch;
   margin: 0;
+  text-align: right;
 }
 
 .hero-para--scrim {
@@ -543,31 +579,56 @@ body {
 
 .product-card:hover {
   border-color: var(--glass-edge);
-  background: rgba(242, 245, 244, 0.12);
+  background: rgba(156, 158, 168, 0.12);
 }
 
 .product-card-icon-badge {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  width: 96px;
-  height: 96px;
+  width: 100%;
+  height: 150px;
   margin-bottom: 20px;
-  border-radius: 999px;
-  background: var(--ink-raised);
-  border: 1px solid var(--hairline);
-  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
-  transition: transform 400ms var(--ease), border-color 200ms ease;
+  transition: transform 400ms var(--ease);
 }
 
-.product-card:hover .product-card-icon-badge {
+.product-card:hover .product-card-icon-badge,
+.product-card:focus-visible .product-card-icon-badge {
   transform: translateY(-2px);
-  border-color: var(--glass-edge);
 }
 
-.product-card-icon {
-  width: 48px;
-  height: 48px;
+/* Sized off height (not a uniform bounding box) so a narrow product (the
+   trim profile) and a wide one (the panelling stack) both read at the same
+   visual scale as the door/window shots, instead of being letterboxed down
+   inside a fixed square. */
+.product-card-cutout {
+  height: 100%;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  transition: transform 320ms var(--ease), filter 320ms var(--ease);
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.4));
+}
+
+/* The interior panel block reads smaller than the others at the same
+   height (it's a compact cube, not a tall flat item) — sized up slightly
+   so its visual weight matches. */
+.product-card[data-slug='interior'] .product-card-cutout {
+  height: 122%;
+  max-width: 250px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover .product-card-cutout,
+  .product-card:focus-visible .product-card-cutout {
+    transform: translateY(-5px) scale(1.03);
+    filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 14px rgba(244, 121, 31, 0.4));
+  }
+}
+
+.product-card:focus-visible .product-card-cutout {
+  transform: translateY(-5px) scale(1.03);
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 14px rgba(244, 121, 31, 0.4));
 }
 
 .product-card:hover h3 {
@@ -707,21 +768,42 @@ body {
   }
 }
 
-/* ---------- Projects ---------- */
+/* ---------- Projects carousel ---------- */
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--gap);
+/* Centered "peek" carousel: the current card sits large and centered,
+   the next/prev cards show as partial slivers at each edge. Native
+   scroll-snap rather than a JS drag library — free touch/trackpad swipe,
+   no extra dependency, works with reduced-motion out of the box. */
+.projects-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 10%;
+  padding: 4px 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .project-card {
   position: relative;
-  display: block;
-  aspect-ratio: 3 / 4;
+  flex: 0 0 auto;
+  width: min(620px, 80%);
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius);
   overflow: hidden;
-  text-decoration: none;
+  scroll-snap-align: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
   color: inherit;
 }
 
@@ -732,7 +814,8 @@ body {
   transition: transform 700ms var(--ease);
 }
 
-.project-card:hover img {
+.project-card:hover img,
+.project-card:focus-visible img {
   transform: scale(1.05);
 }
 
@@ -743,8 +826,23 @@ body {
   transition: opacity 700ms var(--ease);
 }
 
-.project-card:hover .project-card-scrim {
+.project-card:hover .project-card-scrim,
+.project-card:focus-visible .project-card-scrim {
   opacity: 1.08;
+}
+
+.project-card-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--edge);
+  color: #1B1E29;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-caption {
@@ -752,24 +850,113 @@ body {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text);
 }
 
 @media (max-width: 720px) {
-  .projects-grid {
-    grid-auto-flow: column;
-    grid-auto-columns: 74%;
-    grid-template-columns: none;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 4px;
+  .project-card {
+    width: 82%;
+  }
+}
+
+/* ---------- Project lightbox ---------- */
+
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+  background: rgba(6, 9, 8, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.project-lightbox-figure {
+  margin: 0;
+  max-width: min(900px, 84vw);
+  max-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-lightbox-figure img {
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto;
+}
+
+.project-lightbox-figure figcaption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.project-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: rgba(156, 158, 168, 0.08);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.project-lightbox-close:hover,
+.project-lightbox-close:focus-visible {
+  background: rgba(156, 158, 168, 0.16);
+  border-color: var(--glass-edge);
+}
+
+.project-lightbox-nav {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: rgba(156, 158, 168, 0.08);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.project-lightbox-nav:hover,
+.project-lightbox-nav:focus-visible {
+  background: rgba(156, 158, 168, 0.16);
+  border-color: var(--glass-edge);
+}
+
+@media (max-width: 720px) {
+  .project-lightbox {
+    gap: 8px;
+    padding: 16px;
   }
 
-  .project-card {
-    scroll-snap-align: start;
+  .project-lightbox-nav {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-carousel {
+    scroll-behavior: auto;
   }
 }
 
@@ -1364,5 +1551,214 @@ body {
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Cinematic projects carousel ---------- */
+/* Card widths, track x-offset, gap and control position/size are all
+   driven from JS (see CinematicCarousel.tsx) since they depend on measured
+   container width and the active index — this stylesheet only owns static
+   appearance (colour, radius, typography, scrim), never layout math. */
+
+.cine-carousel {
+  position: relative;
+  padding: 8px 0 20px;
+}
+
+.cine-carousel:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 6px;
+}
+
+/* Only the sliding track clips — the prev/next controls live outside this
+   so they can never be cut off by the same overflow:hidden that clips the
+   cards (was clipping the prev control's edge). */
+.cine-viewport {
+  overflow: hidden;
+}
+
+.cine-track {
+  display: flex;
+  align-items: stretch;
+  cursor: grab;
+  touch-action: pan-y;
+  will-change: transform;
+}
+
+.cine-track:active {
+  cursor: grabbing;
+}
+
+.cine-card {
+  position: relative;
+  flex: 0 0 auto;
+  height: clamp(380px, 46vw, 600px);
+  border-radius: 14px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: var(--ink-raised);
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
+.cine-card:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 3px;
+}
+
+.cine-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cine-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    200deg,
+    rgba(6, 9, 8, 0) 30%,
+    rgba(6, 9, 8, 0.55) 68%,
+    rgba(6, 9, 8, 0.88) 100%
+  );
+  pointer-events: none;
+}
+
+.cine-card--active .cine-card-scrim {
+  background: linear-gradient(
+    200deg,
+    rgba(6, 9, 8, 0) 22%,
+    rgba(6, 9, 8, 0.5) 60%,
+    rgba(6, 9, 8, 0.86) 100%
+  );
+}
+
+.cine-card-content {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.cine-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--edge);
+  margin: 0;
+}
+
+.cine-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
+}
+
+.cine-description {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+  max-width: 44ch;
+}
+
+.cine-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  width: fit-content;
+}
+
+.cine-index {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(156, 158, 168, 0.75);
+  pointer-events: none;
+}
+
+.cine-control {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1.5px solid rgba(156, 158, 168, 0.7);
+  background: rgba(11, 15, 14, 0.35);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 250ms var(--ease), border-color 250ms ease, background 250ms ease;
+}
+
+.cine-control:hover,
+.cine-control:focus-visible {
+  transform: translate(-50%, -50%) scale(1.08);
+  border-color: var(--edge);
+  background: rgba(11, 15, 14, 0.55);
+}
+
+.cine-control:focus-visible {
+  outline: 2px solid var(--edge);
+  outline-offset: 3px;
+}
+
+.cine-control--prev {
+  left: 12px;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+.cine-control--prev:hover,
+.cine-control--prev:focus-visible {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .cine-card-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .cine-description {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cine-card img {
+    transition: none !important;
   }
 }

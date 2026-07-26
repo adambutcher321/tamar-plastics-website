@@ -11,7 +11,7 @@ import '@/design/home.css';
 export const metadata: Metadata = {
   title: 'Products Index — uPVC Windows, Doors & Roofline | Tamar Plastics Ltd',
   description:
-    'Full product category range supplied over the trade counter in Saltash or fully fitted across Cornwall and Plymouth. Doors, windows, roofline, guttering, cladding, conservatory roofs, interior, and fixings.',
+    'Full product category range supplied over the trade counter in Saltash or fully fitted across Cornwall and Devon. Doors, windows, roofline, guttering, cladding, conservatory roofs, interior, and fixings.',
 };
 
 export default function ProductIndexPage() {
@@ -31,7 +31,7 @@ export default function ProductIndexPage() {
               uPVC Windows, Doors &amp; Building Plastics
             </h1>
             <p className="hero-para" style={{ maxWidth: '42ch', marginBottom: '32px' }}>
-              High-performance lead-free uPVC and composite building products engineered for Southwest coastal endurance. Supplied over the counter in Saltash or expertly fitted across Plymouth and Cornwall.
+              High-performance lead-free uPVC and composite building products engineered for Southwest coastal endurance. Supplied over the counter in Saltash or expertly fitted across Cornwall and Devon.
             </p>
             <div className="hero-ctas">
               <Link href="/trade/account/" className="btn">
@@ -61,9 +61,15 @@ export default function ProductIndexPage() {
               {PRODUCT_CATEGORIES.map((category) => {
                 const fullContent = ALL_PRODUCTS[category.slug];
                 return (
-                  <Link key={category.slug} href={category.href} className="product-card">
+                  <Link key={category.slug} href={category.href} className="product-card" data-slug={category.slug}>
                     <div className="product-card-icon-badge">
-                      <img src={category.iconSrc} alt="" className="product-card-icon" />
+                      <img
+                        src={category.cutoutSrc}
+                        alt={category.cutoutAlt}
+                        className="product-card-cutout"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <h3 className="h3">{category.name}</h3>
                     <p style={{ marginBottom: '16px' }}>{category.blurb}</p>

@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const DOORS_CONTENT: ProductPageContent = {
   slug: 'doors',
   name: 'Doors',
-  h1: 'uPVC & Composite Doors in Saltash, Plymouth & Cornwall',
+  h1: 'uPVC & Composite Doors in Saltash, Cornwall & Devon',
   tagline: 'Precision-engineered composite and uPVC entrance, French, patio, and bi-fold doors.',
   heroImage: '/images/products/doors.png',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const DOORS_CONTENT: ProductPageContent = {
     '10-Year Frame Guarantee',
   ],
   answerFirstSummary:
-    'High-performance composite and uPVC front, back, French, patio, and bi-fold doors supplied over the counter in Saltash or expertly fitted across Cornwall and Plymouth. Featuring 48mm solid timber cores, Ultion 3-Star lock cylinders, and PAS 24 security, our door systems deliver exceptional thermal performance (1.2 W/m²K) and marine-grade coastal weather resistance. Standard white in stock same-day; bespoke foils take 2–3 weeks.',
+    'High-performance composite and uPVC front, back, French, patio, and bi-fold doors supplied over the counter in Saltash or expertly fitted across Cornwall and Devon. Featuring 48mm solid timber cores, Ultion 3-Star lock cylinders, and PAS 24 security, our door systems deliver exceptional thermal performance (1.2 W/m²K) and marine-grade coastal weather resistance. Standard white in stock same-day; bespoke foils take 2–3 weeks.',
   guarantee: '10-Year Manufacturer Guarantee',
   leadTime: 'Same-day counter collection for standard stock; 2–3 weeks for made-to-order bespoke foils.',
   specTable: [

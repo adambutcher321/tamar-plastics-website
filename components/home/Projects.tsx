@@ -1,22 +1,19 @@
+'use client';
+
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { Reveal } from './Reveal';
-
-const PROJECTS = [
-  {
-    town: 'Saltash',
-    tag: 'Door & windows',
-    src: '/images/areas/saltash.webp',
-    alt: 'Composite front door and windows installed on a stone cottage in Saltash',
-  },
-  {
-    town: 'Plymouth',
-    tag: 'Windows',
-    src: '/images/areas/plymouth.webp',
-    alt: 'uPVC bay windows installed on a suburban house in Plymouth',
-  },
-];
+import { ProjectLightbox } from './ProjectLightbox';
+import { CinematicCarousel } from '../projects/CinematicCarousel';
+import { PROJECTS } from '@/content/projects';
 
 export function Projects() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null);
+  }, []);
+
   return (
     <section className="section section--tight-bottom scrim" aria-labelledby="projects-heading">
       <div className="section-inner">
@@ -36,20 +33,17 @@ export function Projects() {
           </Reveal>
         </div>
 
-        <div className="projects-grid">
-          {PROJECTS.map((project, index) => (
-            <Reveal key={project.town} delayMs={index * 70}>
-              <Link href={`/areas/${project.town.toLowerCase()}/`} className="project-card">
-                <img src={project.src} alt={project.alt} loading="lazy" />
-                <span className="project-card-scrim" aria-hidden="true" />
-                <span className="project-caption">
-                  {project.town} · {project.tag}
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <CinematicCarousel projects={PROJECTS} onEnlarge={setLightboxIndex} />
       </div>
+
+      {lightboxIndex !== null && (
+        <ProjectLightbox
+          projects={PROJECTS}
+          index={lightboxIndex}
+          onClose={closeLightbox}
+          onNavigate={setLightboxIndex}
+        />
+      )}
     </section>
   );
 }

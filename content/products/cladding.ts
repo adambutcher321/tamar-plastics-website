@@ -3,7 +3,7 @@ import type { ProductPageContent } from '@/content/content-types';
 export const CLADDING_CONTENT: ProductPageContent = {
   slug: 'cladding',
   name: 'Cladding',
-  h1: 'uPVC & Composite Exterior Cladding in Saltash, Plymouth & Cornwall',
+  h1: 'uPVC & Composite Exterior Cladding in Saltash, Cornwall & Devon',
   tagline: 'Architectural composite weatherboard, shiplap, open-V, and woodgrain cladding systems.',
   heroImage: '/images/products/cladding.webp',
   badgeHighlights: [
@@ -13,7 +13,7 @@ export const CLADDING_CONTENT: ProductPageContent = {
     '15-Year UV & Colorfast Guarantee',
   ],
   answerFirstSummary:
-    'Architectural composite weatherboard, uPVC shiplap, open-V, and woodgrain exterior cladding supplied in Saltash and installed across Plymouth and Cornwall. Designed to protect timber-framed or masonry walls from wind-driven coastal rain, our low-maintenance cladding systems improve thermal insulation and exterior kerb appeal without painting. Available in 5m lengths in Anthracite Grey, Slate, Cedar, and White for immediate trade pickup or fitted projects.',
+    'Architectural composite weatherboard, uPVC shiplap, open-V, and woodgrain exterior cladding supplied in Saltash and installed across Cornwall and Devon. Designed to protect timber-framed or masonry walls from wind-driven coastal rain, our low-maintenance cladding systems improve thermal insulation and exterior kerb appeal without painting. Available in 5m lengths in Anthracite Grey, Slate, Cedar, and White for immediate trade pickup or fitted projects.',
   guarantee: '15-Year Manufacturer Warranty',
   leadTime: 'uPVC Shiplap in stock same-day; premium composite weatherboard 3–5 working days.',
   specTable: [
