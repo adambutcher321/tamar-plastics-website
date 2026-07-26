@@ -392,6 +392,8 @@
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  padding: 12px 6px;
+  margin: -12px -6px;
 }
 
 @media (min-width: 900px) {
@@ -412,16 +414,17 @@
   padding: 8px 16px;
   border-radius: 999px;
   background: rgba(242, 245, 244, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   flex: 0 0 auto;
   white-space: nowrap;
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease, background 200ms ease;
+  box-sizing: border-box;
+  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
 
 .pd-swatch-card:hover {
-  transform: translateY(-2px);
   border-color: #f4791f;
-  background: rgba(244, 121, 31, 0.08);
+  background: rgba(244, 121, 31, 0.1);
+  box-shadow: 0 0 14px rgba(244, 121, 31, 0.35);
 }
 
 .pd-swatch-disc {
