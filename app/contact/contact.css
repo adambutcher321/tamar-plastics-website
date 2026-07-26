@@ -145,13 +145,8 @@
 /* ─── Form wrapper ──────────────────────────────────────────────────────── */
 
 .contact-form-wrap {
-  /*
-    Subtle background so the form reads as a distinct surface against the dark
-    page — not a panel, just enough to separate the two columns visually.
-    Uses the existing glass token rather than a hard-coded value.
-  */
-  background: var(--glass);
-  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   padding: clamp(28px, 4vw, 48px);
 }
@@ -199,8 +194,8 @@
   min-height: 48px;
 
   /* Appearance */
-  background: var(--ink-raised);
-  border: 1px solid rgba(156, 158, 168, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius);
   color: var(--text);
   font-family: var(--font-body);
@@ -228,7 +223,7 @@
 .cf-input:hover,
 .cf-select:hover,
 .cf-textarea:hover {
-  border-color: rgba(156, 158, 168, 0.28);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 /* Focus — orange outline, matching the site-wide :focus-visible rule */
@@ -239,7 +234,7 @@
   outline: 2px solid var(--edge);
   outline-offset: 2px;
   border-color: var(--edge);
-  background: var(--ink-deep);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Error state */
@@ -262,7 +257,7 @@
 
 /* Option colour on systems that support it */
 .cf-select option {
-  background: #1a1f1e;
+  background: #14161A;
   color: var(--text);
 }
 

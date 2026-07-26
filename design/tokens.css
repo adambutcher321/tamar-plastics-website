@@ -3,9 +3,9 @@
      black. --ink-raised/--ink-deep are lighter/darker steps off the same
      navy hue, not neutral greys, so raised panels read as "the same room,
      different depth" rather than a different material. */
-  --ink: #1B1E29;
-  --ink-raised: #232733;
-  --ink-deep: #14161F;
+  --ink: #111319;
+  --ink-raised: #181B22;
+  --ink-deep: #0D0E12;
   --paper: #FFFFFF;
   --text: #FFFFFF;
   --text-muted: #9C9EA8;

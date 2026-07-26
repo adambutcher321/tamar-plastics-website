@@ -44,8 +44,8 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius, 4px);
   padding: 12px 18px;
   font-size: 14px;
@@ -66,8 +66,8 @@
 /* ── "What to expect" Opening Card ───────────────────────────────────────── */
 
 .survey-expect-box {
-  background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius, 4px);
   padding: 24px;
   max-width: 800px;
@@ -84,7 +84,7 @@
   color: var(--text, #F2F5F4);
   margin: 0 0 16px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.1));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .survey-steps-list {
@@ -167,8 +167,8 @@
 /* ── Form Panels ────────────────────────────────────────────────────────── */
 
 .survey-step-panel {
-  background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.14));
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius, 4px);
   padding: clamp(24px, 4vw, 40px);
   max-width: 800px;
@@ -280,14 +280,14 @@
 .survey-textarea,
 .survey-select {
   width: 100%;
-  background: var(--ink-deep, #060908);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.16));
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius, 4px);
   padding: 12px 14px;
   font-size: 14px;
   color: var(--text, #F2F5F4);
   font-family: inherit;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
 }
 
 .survey-input:focus,
@@ -295,6 +295,7 @@
 .survey-select:focus {
   outline: 0;
   border-color: var(--edge, #F4791F);
+  background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 0 0 2px var(--edge-glow, rgba(244, 121, 31, 0.25));
 }
 
@@ -457,8 +458,8 @@
 /* ── Success Confirmation Box ───────────────────────────────────────────── */
 
 .survey-success-card {
-  background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.16));
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius, 4px);
   padding: clamp(32px, 5vw, 56px);
   max-width: 800px;
@@ -497,8 +498,8 @@
 }
 
 .survey-summary-box {
-  background: rgba(156, 158, 168, 0.03);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   padding: 20px;
   margin-bottom: 32px;
@@ -514,7 +515,7 @@
   color: var(--text-muted, rgba(156, 158, 168, 0.7));
   margin: 0 0 12px;
   padding-bottom: 6px;
-  border-bottom: 1px solid var(--hairline, rgba(156, 158, 168, 0.08));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .survey-summary-dl {
@@ -579,7 +580,7 @@
 .survey-expect-section {
   padding-top: clamp(48px, 6vw, 80px);
   padding-bottom: clamp(64px, 8vw, 110px);
-  border-top: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .survey-expect-inner {
@@ -605,8 +606,8 @@
 }
 
 .survey-expect-card {
-  background: var(--ink-raised, #121817);
-  border: 1px solid var(--hairline, rgba(156, 158, 168, 0.12));
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius, 4px);
   padding: 24px;
 }
