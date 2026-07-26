@@ -217,10 +217,23 @@
   text-align: right;
 }
 
-/* ---------- FAQ: no card, thin top-border rows ---------- */
+/* ---------- FAQ: 2-column balanced grid layout ---------- */
+
+.pd-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 48px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .pd-faq-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 .pd-faq-list {
-  max-width: 760px;
+  width: 100%;
 }
 
 .pd-faq-row {
