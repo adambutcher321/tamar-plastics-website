@@ -150,12 +150,24 @@ export function Footer() {
 
           {/* Navigation columns */}
           <div className="footer-nav-wrap">
+            <nav className="footer-nav-group" aria-label="Products">
+              <h3 className="footer-col-label">Products</h3>
+              <ul className="footer-nav-list">
+                <li><Link href="/products/windows/">uPVC Windows</Link></li>
+                <li><Link href="/products/doors/">Doors</Link></li>
+                <li><Link href="/products/roofline/">Fascias &amp; Soffits</Link></li>
+                <li><Link href="/products/guttering/">Guttering</Link></li>
+                <li><Link href="/products/cladding/">Cladding</Link></li>
+                <li><Link href="/products/conservatory-roofs/">Conservatory Roofs</Link></li>
+                <li><Link href="/products/interior/">Wall Panels</Link></li>
+              </ul>
+            </nav>
             <nav className="footer-nav-group" aria-label="Explore Tamar Plastics">
               <h3 className="footer-col-label">Explore</h3>
               <ul className="footer-nav-list">
                 <li><Link href="/trade/">Trade &amp; Supply</Link></li>
                 <li><Link href="/home-improvements/">Home Improvements</Link></li>
-                <li><Link href="/products/">Products</Link></li>
+                <li><Link href="/projects/">Projects</Link></li>
                 <li><Link href="/repairs/">Repairs</Link></li>
               </ul>
             </nav>

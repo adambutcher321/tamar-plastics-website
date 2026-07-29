@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
     town: 'Saltash',
     tag: 'Window & Door Package',
     description: 'A-Rated uPVC casement windows and solid timber-core composite entrance door.',
-    src: '/images/projects/project-01.webp',
+    src: '/images/projects/upvc-window-composite-door-saltash.webp',
     alt: 'Modern residential uPVC window and composite entrance door installation in Saltash',
   },
   {
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     town: 'Plymouth',
     tag: 'Heritage Flush Sash',
     description: 'Architectural flush sash uPVC windows in Anthracite Grey with multi-point locking.',
-    src: '/images/projects/project-02.webp',
+    src: '/images/projects/heritage-flush-sash-upvc-windows-plymouth.webp',
     alt: 'Anthracite Grey heritage flush sash uPVC windows installed in Plymouth',
   },
   {
@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     town: 'Tavistock',
     tag: 'Roofline & Fascias',
     description: '18mm structural uPVC fascia, ventilated soffit, and high-capacity Deepflow guttering.',
-    src: '/images/projects/project-03.webp',
+    src: '/images/projects/upvc-fascia-soffit-guttering-tavistock.webp',
     alt: 'Full uPVC roofline fascia soffit and guttering replacement in Tavistock',
   },
   {
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     town: 'Torpoint',
     tag: 'Composite Entrance Door',
     description: 'PAS 24 security composite front door with Ultion 3-star diamond anti-snap cylinder.',
-    src: '/images/projects/project-04.webp',
+    src: '/images/projects/high-security-composite-door-torpoint.webp',
     alt: 'High-security composite front door installed in Torpoint',
   },
   {
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     town: 'Liskeard',
     tag: 'Solid Warm Roof Conversion',
     description: 'Lightweight solid replacement roof with 0.15 W/m²K thermal insulation and roof lantern.',
-    src: '/images/projects/project-05.webp',
+    src: '/images/projects/solid-warm-conservatory-roof-liskeard.webp',
     alt: 'Solid warm conservatory roof conversion with glass lantern in Liskeard',
   },
   {
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     town: 'Saltash',
     tag: 'Exterior Weatherboard',
     description: 'Class A fire-rated composite weatherboard cladding in Slate Grey with concealed trims.',
-    src: '/images/projects/project-06.webp',
+    src: '/images/projects/composite-weatherboard-cladding-saltash.webp',
     alt: 'Composite weatherboard exterior cladding installation in Saltash',
   },
   {
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     town: 'Plymouth',
     tag: 'Vertical Sliding Sash',
     description: 'Period-style vertical sliding sash uPVC windows with decorative astragal glazing bars.',
-    src: '/images/projects/project-07.webp',
+    src: '/images/projects/vertical-sliding-sash-upvc-windows-plymouth.webp',
     alt: 'Period-style vertical sliding sash uPVC windows fitted in Plymouth',
   },
   {
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     town: 'Callington',
     tag: 'Bi-Fold Patio Doors',
     description: 'Thermally broken aluminium bi-fold doors creating a wide seamless opening to patio.',
-    src: '/images/projects/project-08.webp',
+    src: '/images/projects/aluminium-bifold-doors-callington.webp',
     alt: 'Aluminium bi-fold door installation in Callington',
   },
   {
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     town: 'Looe',
     tag: 'Cast-Iron Rainwater & Roofline',
     description: 'Coastal marine-grade roofline with authentic Cast-Iron effect rainwater system.',
-    src: '/images/projects/project-09.webp',
+    src: '/images/projects/cast-iron-effect-guttering-roofline-looe.webp',
     alt: 'Cast-Iron effect rainwater guttering and uPVC roofline in Looe',
   },
   {
@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
     town: 'Bodmin',
     tag: 'uPVC Bay Windows',
     description: 'Energy A-Rated uPVC bay window transformation with load-bearing structural jack poles.',
-    src: '/images/projects/project-10.webp',
+    src: '/images/projects/upvc-bay-windows-bodmin.webp',
     alt: 'Energy efficient uPVC bay window installation in Bodmin',
   },
   {
@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     town: 'Saltash',
     tag: 'Waterproof Wall Panels',
     description: '100% waterproof tongue-and-groove shower enclosure wall panelling in Italian Marble.',
-    src: '/images/projects/project-11.webp',
+    src: '/images/projects/waterproof-bathroom-wall-panels-saltash.webp',
     alt: 'Waterproof bathroom wall panelling in Saltash',
   },
 ];

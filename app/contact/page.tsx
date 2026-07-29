@@ -96,6 +96,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="contact-info-heading">Our Office</h3>
                     <address className="contact-address">
+                      <p><strong>{BUSINESS.legalName}</strong></p>
                       <p>{BUSINESS.streetAddress}</p>
                       <p>{BUSINESS.addressLocality}, {BUSINESS.addressRegion}</p>
                       <p>{BUSINESS.postalCode}</p>
@@ -136,6 +137,16 @@ export default function ContactPage() {
                     </p>
                     <p className="contact-info-note">
                       Trade counter open for same-day collection on standard stocked lines.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="contact-info-item">
+                  <MapPin className="contact-info-icon" aria-hidden="true" />
+                  <div>
+                    <h3 className="contact-info-heading">Directions &amp; Parking</h3>
+                    <p className="contact-info-note">
+                      We are located at Gwel Avon Business Park. Free customer parking and large vehicle loading bays are available directly outside our trade counter.
                     </p>
                   </div>
                 </div>

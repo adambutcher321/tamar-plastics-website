@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "audit:seo": "playwright test tests/seo.spec.ts",
+    "audit:links": "playwright test tests/navigation.spec.ts",
+    "lighthouse": "echo 'Run lighthouse manually in Chrome DevTools against the production build, or use lighthouse-cli'"
   },
   "dependencies": {
     "@types/nodemailer": "^8.0.1",
@@ -20,6 +24,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.1",

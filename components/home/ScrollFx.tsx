@@ -103,6 +103,7 @@ export function ScrollFx({ showImage = true }: ScrollFxProps) {
               loop
               playsInline
               preload="auto"
+              title="Tamar Plastics - uPVC Windows, Doors, and Roofline in Saltash, Cornwall"
             >
               <source media="(max-width: 767px)" src="/videos/hero-film-mobile.webm?v=4" type="video/webm" />
               <source media="(max-width: 767px)" src="/videos/hero-film-mobile.mp4?v=4" type="video/mp4" />
