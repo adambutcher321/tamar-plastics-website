@@ -39,8 +39,8 @@
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 999px;
-  background: rgba(244, 121, 31, 0.15);
-  color: var(--edge, #F4791F);
+  background: rgba(245, 138, 46, 0.15);
+  color: var(--edge, #F58A2E);
 }
 
 /* ── Content Layout (2 Columns: TOC Sidebar + Article) ───────────────────── */
@@ -187,18 +187,18 @@
 }
 
 .legal-article a:hover {
-  color: var(--edge, #F4791F);
+  color: var(--edge, #F58A2E);
 }
 
 /* ── Editorial / Business Placeholder Box ───────────────────────────────── */
 
 .legal-placeholder-box {
-  background: rgba(244, 121, 31, 0.08);
-  border: 1px solid rgba(244, 121, 31, 0.25);
+  background: rgba(245, 138, 46, 0.08);
+  border: 1px solid rgba(245, 138, 46, 0.25);
   border-radius: 4px;
   padding: 12px 16px;
   font-size: 13px;
-  color: var(--edge, #F4791F);
+  color: var(--edge, #F58A2E);
   margin: 16px 0;
   display: inline-block;
 }

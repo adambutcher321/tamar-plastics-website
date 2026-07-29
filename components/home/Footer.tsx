@@ -7,7 +7,7 @@ import { CookieSettingsButton } from '@/components/privacy/CookieSettingsButton'
 const MAPS_URL =
   'https://maps.google.com/maps?q=Unit+4+Gwel+Avon+Business+Park+Gilston+Road+Saltash+PL12+6TW';
 
-function FacebookIcon() {
+export function FacebookIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -21,7 +21,7 @@ function FacebookIcon() {
   );
 }
 
-function InstagramIcon() {
+export function InstagramIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -94,9 +94,8 @@ export function Footer() {
               className="footer-social"
               aria-label="Tamar Plastics on social media"
             >
-              {/* TODO: replace href values with the real account URLs */}
               <a
-                href="https://www.facebook.com/people/Tamar-Plastics-Ltd/61555741155497/"
+                href={BUSINESS.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Tamar Plastics on Facebook"
@@ -105,7 +104,7 @@ export function Footer() {
                 <FacebookIcon />
               </a>
               <a
-                href="https://www.instagram.com/tamarplastics/"
+                href={BUSINESS.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Tamar Plastics on Instagram"

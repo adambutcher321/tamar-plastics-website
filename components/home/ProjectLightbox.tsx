@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { X } from 'lucide-react';
 import type { Project } from '@/content/projects';
 
 export function ProjectLightbox({
@@ -49,7 +50,7 @@ export function ProjectLightbox({
       }}
     >
       <button type="button" className="project-lightbox-close" onClick={onClose} aria-label="Close">
-        ✕
+        <X size={18} strokeWidth={2} aria-hidden="true" />
       </button>
 
       {projects.length > 1 && (

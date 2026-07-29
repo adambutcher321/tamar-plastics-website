@@ -14,16 +14,102 @@
   padding-top: 40px;
 }
 
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 36px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero-icon-wrap {
+    display: none;
+  }
+}
+
+.contact-hero-icon-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: -20px;
+}
+
+.contact-hero-icon-glow {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 138, 46, 0.3) 0%, rgba(245, 138, 46, 0) 70%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.contact-hero-3d-icon {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 20px rgba(245, 138, 46, 0.4));
+  transition: transform 320ms var(--ease, ease);
+}
+
+.contact-hero-icon-wrap:hover .contact-hero-3d-icon {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.contact-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.contact-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-faint);
+  padding-bottom: 6px;
+}
+
+.contact-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.contact-breadcrumb a:hover,
+.contact-breadcrumb a:focus-visible {
+  color: var(--text);
+}
+
+.contact-breadcrumb [aria-current='page'] {
+  color: var(--text);
+  font-weight: 500;
+}
+
 .contact-heading {
   margin-top: 16px;
   margin-bottom: 16px;
   max-width: 22ch;
 }
 
-.contact-intro {
+.contact-hero-inner .contact-intro {
   max-width: 72ch;
   text-align: left;
-  margin-top: 14px;
+  margin-top: 28px;
   margin-bottom: 0;
 }
 
@@ -31,6 +117,14 @@
 
 .contact-body {
   padding-top: clamp(32px, 4vw, 56px);
+}
+
+.contact-section-head {
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.contact-section-head .h2 {
+  margin-top: 8px;
 }
 
 .contact-grid {
@@ -55,14 +149,25 @@
   gap: 0;
 }
 
-.contact-info-block {
-  padding: 24px 0;
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
   border-top: 1px solid var(--hairline);
 }
 
-.contact-info-block:first-child {
+.contact-info-item:first-child {
   border-top: none;
   padding-top: 0;
+}
+
+.contact-info-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--edge);
+  stroke-width: 1.75px;
 }
 
 .contact-info-heading {
@@ -144,13 +249,134 @@
   margin: 0;
 }
 
+/* ─── Follow our social media ───────────────────────────────────────────── */
+
+.contact-social-band {
+  border-top: 1px solid var(--hairline);
+}
+
+.contact-social-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-social-inner .h2 {
+  margin-top: 8px;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.contact-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  color: var(--text-muted);
+  transition: color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.contact-social-link:hover,
+.contact-social-link:focus-visible {
+  color: var(--edge);
+  border-color: var(--edge);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-social-link:hover {
+    transform: none;
+  }
+}
+
+/* ─── Full-width map ─────────────────────────────────────────────────────── */
+
+.contact-map-section {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 42vw, 480px);
+  border-top: 1px solid var(--hairline);
+}
+
+.contact-map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  /* Dark-mode map trick: invert the tiles, then invert the hue back so land/
+     water read as neutral dark tones instead of an inverted-orange mess. */
+  filter: invert(90%) hue-rotate(180deg) grayscale(1) brightness(0.95);
+}
+
+/* ─── Trust strip (reviews) ─────────────────────────────────────────────── */
+
+.contact-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-trust-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-trust-stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--edge);
+}
+
+.contact-trust-figure {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-trust-quote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+.contact-trust-quote cite {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-faint);
+  font-style: normal;
+}
+
 /* ─── Form wrapper ──────────────────────────────────────────────────────── */
 
 .contact-form-wrap {
+  position: relative;
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   padding: clamp(28px, 4vw, 48px);
+  overflow: hidden;
+}
+
+.contact-form-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--edge) 0%, var(--edge-deep) 100%);
 }
 
 /* ─── Field layout ──────────────────────────────────────────────────────── */

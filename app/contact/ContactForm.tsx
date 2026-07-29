@@ -1,6 +1,7 @@
 'use client';
 
 import { useActionState, useRef, useEffect } from 'react';
+import { Check } from 'lucide-react';
 import { submitContactForm, type ContactFormState } from './actions';
 import { ENQUIRY_TYPES, ENQUIRY_LABELS } from './enquiry-types';
 
@@ -66,7 +67,7 @@ export function ContactForm() {
         aria-label="Enquiry received"
         role="region"
       >
-        <div className="cf-success-mark" aria-hidden="true">✓</div>
+        <div className="cf-success-mark" aria-hidden="true"><Check size={20} strokeWidth={2.5} /></div>
         <h2 className="cf-success-heading">Enquiry received</h2>
         <p className="cf-success-body">
           Thank you. We'll be in touch shortly — usually within one business day.

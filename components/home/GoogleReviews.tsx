@@ -1,3 +1,4 @@
+import { Star } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { PLACEHOLDER_GOOGLE_REVIEWS } from '@/content/placeholder-google-reviews';
 
@@ -14,8 +15,10 @@ function GoogleG() {
 
 function Stars() {
   return (
-    <span aria-hidden="true" style={{ color: '#FBBC05', letterSpacing: '1px' }}>
-      ★★★★★
+    <span aria-hidden="true" style={{ display: 'inline-flex', gap: '1px', color: '#FBBC05' }}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
+      ))}
     </span>
   );
 }

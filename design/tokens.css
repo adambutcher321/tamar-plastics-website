@@ -14,9 +14,9 @@
   --glass: rgba(156, 158, 168, 0.08);
   --glass-edge: rgba(156, 158, 168, 0.18);
 
-  --edge: #F4791F;
-  --edge-deep: #C36119;
-  --edge-glow: rgba(244, 121, 31, 0.28);
+  --edge: #F58A2E;
+  --edge-deep: #C46F25;
+  --edge-glow: rgba(245, 138, 46, 0.28);
 
   --font-display: 'proxima-nova', sans-serif;
   --font-body: var(--font-inter-2), 'Inter', sans-serif;

@@ -30,6 +30,10 @@ export function buildLocalBusinessSchema() {
         closes: BUSINESS.hours.closes,
       },
     ],
+    sameAs: [
+      BUSINESS.social.facebook,
+      BUSINESS.social.instagram,
+    ],
   };
 }
 

@@ -17,10 +17,10 @@ export function Nav() {
         </Link>
         <ul className="nav-links">
           <li>
-            <Link href="/trade/">Trade &amp; Supply</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/home-improvements/">Home Improvements</Link>
+            <Link href="/projects/">Latest Projects</Link>
           </li>
           <li>
             <Link href="/products/">Products</Link>

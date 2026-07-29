@@ -37,8 +37,8 @@ export function ProductHero({ eyebrow, headline, paragraph, heroImage, heroAlt, 
   });
 
   return (
-    <div className="pd-hero-grid">
-      <div>
+    <section className="pd-hero-split">
+      <div className="pd-hero-text-col">
         <motion.p className="pd-eyebrow" {...fadeUp(0)}>
           {eyebrow}
         </motion.p>
@@ -52,8 +52,8 @@ export function ProductHero({ eyebrow, headline, paragraph, heroImage, heroAlt, 
           <Link href="/book-a-survey/" className="pd-btn pd-btn--primary">
             Book a Free Survey →
           </Link>
-          <Link href="/trade/account/" className="pd-btn pd-btn--secondary">
-            Trade &amp; Supply Only
+          <Link href="/contact/" className="pd-btn pd-btn--secondary">
+            Contact Us →
           </Link>
         </motion.div>
         <motion.div className="pd-stats" {...fadeUp(0.48)}>
@@ -66,21 +66,17 @@ export function ProductHero({ eyebrow, headline, paragraph, heroImage, heroAlt, 
         </motion.div>
       </div>
 
-      <div className="pd-image-cell">
-        <motion.div
-          className="pd-image-glow"
-          aria-hidden="true"
-          animate={{ opacity: reduceMotion ? 0.6 : [0.45, 0.75, 0.45], scale: reduceMotion ? 1 : [1, 1.05, 1] }}
-          transition={{ duration: 5, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
-        />
+      <div className="pd-hero-image-col">
+        <div className="pd-image-shadow" aria-hidden="true" />
         <motion.img
           src={heroImage}
           alt={heroAlt}
           className="pd-image"
-          animate={{ y: reduceMotion ? 0 : [0, -6, 0], rotate: -3 }}
-          transition={{ duration: 6, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 16, scale: reduceMotion ? 1 : 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.2, ease: EASE }}
         />
       </div>
-    </div>
+    </section>
   );
 }

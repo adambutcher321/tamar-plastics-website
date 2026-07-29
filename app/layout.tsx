@@ -50,9 +50,19 @@ const interBody = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Tamar Plastics Ltd — uPVC Windows, Doors & Roofline in Saltash, Cornwall',
+  metadataBase: new URL('https://tamarplasticsltd.co.uk'),
+  title: 'Trade & Homeowner Building Plastics Saltash | Tamar Plastics Ltd',
   description:
-    'Trade counter and installer in Saltash, Cornwall. uPVC and composite windows, doors and roofline — supplied over the counter or supplied and fitted.',
+    'Premier supplier of uPVC windows, composite doors, roofline, guttering, cladding & interior plastics in Saltash. Serving trade & public across Cornwall & Devon.',
+  openGraph: {
+    images: '/images/og-tamar.webp',
+  },
+  alternates: {
+    canonical: '/',
+  },
+  verification: {
+    google: '[SEARCH_CONSOLE_VERIFICATION]',
+  },
 };
 
 import { CookieBanner } from '@/components/privacy/CookieBanner';
@@ -65,6 +75,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/riz0ofe.css" />
+        {/* Analytics Placeholders — Loaded only after consent */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                if (document.cookie.includes('tamar-cookie-consent=accepted')) {
+                  // GA4
+                  var gtagScript = document.createElement('script');
+                  gtagScript.async = true;
+                  gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=[GA4_MEASUREMENT_ID]';
+                  document.head.appendChild(gtagScript);
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '[GA4_MEASUREMENT_ID]');
+
+                  // Clarity
+                  (function(c,l,a,r,i,t,y){
+                      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+"[CLARITY_PROJECT_ID]";
+                      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                  })(window, document, "clarity", "script");
+                }
+              });
+            `,
+          }}
+        />
       </head>
       <body
         className={`${archivo.variable} ${interTight.variable} ${jetBrainsMono.variable} ${archivoDisplay.variable} ${interBody.variable}`}

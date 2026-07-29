@@ -71,7 +71,7 @@
 }
 
 .cookie-link:hover {
-  color: var(--edge, #F4791F);
+  color: var(--edge, #F58A2E);
 }
 
 .cookie-banner-actions {
@@ -136,7 +136,7 @@
 }
 
 .cookie-btn:focus-visible {
-  outline: 2px solid var(--edge, #F4791F);
+  outline: 2px solid var(--edge, #F58A2E);
   outline-offset: 2px;
 }
 
@@ -265,8 +265,8 @@
 }
 
 .cookie-badge--required {
-  background: rgba(244, 121, 31, 0.15);
-  color: var(--edge, #F4791F);
+  background: rgba(245, 138, 46, 0.15);
+  color: var(--edge, #F58A2E);
 }
 
 .cookie-category-desc {
@@ -313,7 +313,7 @@
 }
 
 .cookie-toggle input:checked + .cookie-toggle-slider {
-  background-color: var(--edge, #F4791F);
+  background-color: var(--edge, #F58A2E);
 }
 
 .cookie-toggle input:checked + .cookie-toggle-slider:before {

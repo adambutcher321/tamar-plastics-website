@@ -1,0 +1,21 @@
+# Tamar Plastics — Metadata Inventory
+
+## Complete Metadata Audit
+
+| Route Path | Unique Title Tag | Meta Description | Open Graph Image | Robots Directive |
+|---|---|---|---|---|
+| `/` | Trade & Homeowner Building Plastics Saltash \| Tamar Plastics Ltd | Premier supplier of uPVC windows, composite doors, roofline, guttering, cladding & interior plastics in Saltash. Serving trade & public across Cornwall & Devon. | `/images/og-tamar.webp` | `index, follow` |
+| `/products/` | Products Index — uPVC Windows, Doors & Roofline \| Tamar Plastics Ltd | Complete trade & retail catalogue of uPVC windows, composite doors, roofline, guttering, cladding, conservatory roofs, wall panels, & fixings in Saltash. | `/images/og-tamar.webp` | `index, follow` |
+| `/products/doors/` | uPVC & Composite Doors Saltash, Cornwall & Devon — Tamar Plastics Ltd | Premium 44mm solid core composite & uPVC entrance, French, patio, & bi-fold doors engineered for Cornish coastal weather. Trade supply & professional fitting. | `/images/products/doors.webp` | `index, follow` |
+| `/products/windows/` | uPVC Windows Saltash, Cornwall & Devon — Tamar Plastics Ltd | Energy A+ rated casement, heritage flush sash, tilt & turn, & sliding sash uPVC windows manufactured to UK standards in Saltash, Cornwall. | `/images/products/windows.webp` | `index, follow` |
+| `/products/roofline/` | Roofline Saltash, Cornwall & Devon — Tamar Plastics Ltd | Heavy-duty 18mm replacement fascias, ventilated soffits, bargeboards & dry verge systems. Class 1 fire-rated with 20-year colourfast guarantee. | `/images/products/roofline.webp` | `index, follow` |
+| `/products/guttering/` | Guttering Saltash, Cornwall & Devon — Tamar Plastics Ltd | High-capacity Deepflow, Ogee, Square & heritage Cast-Iron effect rainwater drainage systems handling 4.9 L/s storm flow rate in Cornwall & Devon. | `/images/products/guttering.webp` | `index, follow` |
+| `/products/cladding/` | Cladding Saltash, Cornwall & Devon — Tamar Plastics Ltd | Class A fire-rated composite weatherboard & uPVC shiplap cladding for maintenance-free exterior insulation in Saltash, Plymouth & Cornwall. | `/images/products/cladding.webp` | `index, follow` |
+| `/products/conservatory-roofs/` | Conservatory Roofs Saltash, Cornwall & Devon — Tamar Plastics Ltd | Lightweight solid warm replacement roofs & slimline aluminium roof lanterns achieving 0.15 W/m²K U-value to transform conservatories into year-round rooms. | `/images/products/conservatory-roofs.webp` | `index, follow` |
+| `/products/interior/` | Interior Wall Panels Saltash, Cornwall & Devon — Tamar Plastics Ltd | 100% waterproof tongue-and-groove shower wall panels & PVC ceiling boards in Carrara Marble, Concrete & Woodslat finishes. Grout-free hygiene. | `/images/products/interior.webp` | `index, follow` |
+| `/products/trims-fixings/` | Trims & Fixings Saltash, Cornwall & Devon — Tamar Plastics Ltd | Trade architraves, quadrant trims, neutral cure low-modulus silicones & structural fixings stocked for same-day counter collection in Saltash. | `/images/products/trims-fixings.webp` | `index, follow` |
+| `/book-a-survey/` | Book a Free Site Survey \| Tamar Plastics, Saltash | Schedule a free no-obligation home or site survey across Saltash, Plymouth, Cornwall, and Devon. Itemised written quote with 10-year guarantee. | `/images/og-tamar.webp` | `index, follow` |
+| `/contact/` | Contact Tamar Plastics \| Trade Counter Saltash | Contact Tamar Plastics Ltd in Saltash, Cornwall. Trade counter address, opening hours (Mon-Fri 08:00-17:00), phone 01752 841234, & enquiry form. | `/images/og-tamar.webp` | `index, follow` |
+| `/projects/` | Installed Projects & Local Trade Supply Gallery \| Tamar Plastics | Explore recent uPVC window, composite door, roofline, & cladding installations completed across Saltash, Plymouth, Cornwall & Devon. | `/images/og-tamar.webp` | `index, follow` |
+| `/privacy-policy/` | Privacy Policy \| Tamar Plastics Ltd | Privacy Policy for Tamar Plastics Ltd detailing data collection, GDPR compliance, & contact information. | `/images/og-tamar.webp` | `index, follow` |
+| `/cookie-policy/` | Cookie Policy \| Tamar Plastics Ltd | Cookie Policy for Tamar Plastics Ltd explaining essential & analytical cookie usage and user choices. | `/images/og-tamar.webp` | `index, follow` |

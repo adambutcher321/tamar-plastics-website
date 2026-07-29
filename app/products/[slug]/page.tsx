@@ -8,10 +8,9 @@ import { Grain } from '@/components/home/Grain';
 import { ALL_PRODUCTS, getProductBySlug } from '@/content/products';
 import { PRODUCT_CATEGORIES } from '@/content/product-categories';
 import { buildServiceSchema, buildFaqSchema, buildBreadcrumbSchema } from '@/lib/schema';
-import { ProductHero, type ProductHeroStat } from '@/components/products/ProductHero';
-import { ProductSpecsSection } from '@/components/products/ProductSpecsSection';
-import { ProductFAQSection } from '@/components/products/ProductFAQSection';
-import { getColourStyle } from '@/lib/colours';
+import type { ProductHeroStat } from '@/components/products/ProductHero';
+import { ProductHeroSlider } from '@/components/products/ProductHeroSlider';
+import { getTechHighlightInfo } from '@/components/products/ProductSpecsSection';
 import '@/design/home.css';
 import './product-detail.css';
 
@@ -37,8 +36,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 }
 
 /** Pulls the leading number out of a guarantee string (e.g. "10-Year
- * Manufacturer Guarantee" -> 10) so the hero stat is real content, not a
- * separately-maintained duplicate number that could drift out of sync. */
+ * Manufacturer Guarantee" -> 10) so the hero stat is real content. */
 function guaranteeYears(guarantee?: string): string {
   const match = guarantee?.match(/(\d+)/);
   return match ? match[1] : '10';
@@ -75,6 +73,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     { value: String(product.specTable.length), label: 'Key Specifications' },
   ];
 
+  const techInfo = getTechHighlightInfo(product.slug);
+
   return (
     <div className="home pd-page">
       <script
@@ -96,159 +96,52 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <main>
         {/* Breadcrumb Trail */}
-        <div style={{ padding: '16px var(--gutter) 0', position: 'relative', zIndex: 2 }}>
-          <div className="section-inner" style={{ display: 'flex', gap: '8px', alignItems: 'center', fontSize: '12px' }}>
-            <Link href="/" className="ghost-pill" style={{ height: '28px', padding: '0 12px' }}>Home</Link>
-            <span style={{ color: '#9C9EA8' }}>/</span>
-            <Link href="/products/" className="ghost-pill" style={{ height: '28px', padding: '0 12px' }}>Products</Link>
-            <span style={{ color: '#9C9EA8' }}>/</span>
-            <span style={{ color: '#ffffff', fontWeight: 500 }}>{product.name}</span>
+        <div className="pd-breadcrumb">
+          <div className="section-inner pd-breadcrumb-inner">
+            <Link href="/" className="ghost-pill pd-breadcrumb-pill">Home</Link>
+            <span className="pd-breadcrumb-sep">/</span>
+            <Link href="/products/" className="ghost-pill pd-breadcrumb-pill">Products</Link>
+            <span className="pd-breadcrumb-sep">/</span>
+            <span className="pd-breadcrumb-current">{product.name}</span>
           </div>
         </div>
 
-        {/* Hero Section */}
-        <section className="section">
-          <div className="section-inner" style={{ paddingTop: '20px' }}>
-            <ProductHero
+        {/* Hero Section — arrow-stepped, 5 slides: intro / specs / features / finishes / get started / FAQ. */}
+        <section className="section pd-slider-section">
+          <div className="section-inner">
+            <ProductHeroSlider
+              slug={product.slug}
               eyebrow="Saltash, Cornwall & Devon"
               headline={product.h1}
+              productName={product.name}
               paragraph={product.tagline || product.answerFirstSummary}
               heroImage={heroImage}
               heroAlt={categoryMeta?.cutoutAlt || product.name}
               stats={stats}
-            />
-          </div>
-        </section>
-
-        {/* Highlights Badge Bar */}
-        {product.badgeHighlights && product.badgeHighlights.length > 0 && (
-          <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '20px var(--gutter)' }}>
-            <div className="section-inner" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
-              {product.badgeHighlights.map((badge) => (
-                <div key={badge} className="ghost-pill" style={{ height: '38px', width: '100%', justifyContent: 'center', fontSize: '12px', color: '#ffffff' }}>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F4791F' }} />
-                  {badge}
-                </div>
+              specSummary={techInfo.summary}
+              specHighlights={product.specTable}
+              specBadges={techInfo.badges.map(({ label, icon: Icon }) => (
+                <span key={label} className="pd-spec-badge">
+                  <Icon className="pd-badge-icon" aria-hidden="true" />
+                  {label}
+                </span>
               ))}
-            </div>
-          </section>
-        )}
-
-        {/* Technical Specifications — two column: statement headline + row list */}
-        <section className="section">
-          <div className="section-inner">
-            <ProductSpecsSection headline={`${product.name} Specifications`} rows={product.specTable} slug={product.slug} />
-            {product.guarantee && (
-              <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>
-                <span style={{ color: '#9C9EA8' }}>Warranty Protection:</span>
-                <span style={{ color: '#F4791F', fontWeight: 600 }}>{product.guarantee}</span>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Key Features */}
-        {product.features && product.features.length > 0 && (
-          <section className="section">
-            <div className="section-inner">
-              <p className="pd-eyebrow">Engineering &amp; Design</p>
-              <h2 className="pd-specs-headline" style={{ marginBottom: '24px', maxWidth: 'none' }}>
-                Key Features &amp; Benefits
-              </h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
-                {product.features.map((feature) => (
-                  <div key={feature.title}>
-                    <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '8px', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F4791F', flexShrink: 0 }} />
-                      {feature.title}
-                    </h3>
-                    <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#9C9EA8', margin: 0 }}>
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Colours & Foil Swatches */}
-        {product.colours && product.colours.length > 0 && (
-          <section className="section">
-            <div className="section-inner">
-              <p className="pd-eyebrow">Finishes &amp; Colourways</p>
-              <h2 className="pd-specs-headline" style={{ marginBottom: '24px', maxWidth: 'none' }}>
-                Available Foils &amp; Finishes
-              </h2>
-              <div className="pd-swatch-grid">
-                {product.colours.map((colour) => {
-                  const style = getColourStyle(colour);
-                  return (
-                    <div key={colour} className="pd-swatch-card">
-                      <div
-                        className="pd-swatch-disc"
-                        style={{
-                          background: style.background,
-                          border: style.border,
-                        }}
-                      />
-                      <span className="pd-swatch-label">{colour}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Dual Conversion Cards */}
-        <section className="section">
-          <div className="section-inner">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--gap)' }}>
-              <div style={{ padding: '32px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                <p className="pd-eyebrow">Trade &amp; Commercial</p>
-                <h3 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '12px', color: '#ffffff' }}>Buy {product.name} Supply-Only</h3>
-                <p style={{ fontSize: '14px', color: '#9C9EA8', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Open a trade account for trade pricing, same-day counter pickup in Saltash, or site delivery across Cornwall and Devon.
-                </p>
-                <Link href="/trade/account/" className="pd-btn pd-btn--primary">
-                  Trade Counter &amp; Account →
-                </Link>
-              </div>
-
-              <div style={{ padding: '32px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                <p className="pd-eyebrow">Homeowners &amp; Renovators</p>
-                <h3 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '12px', color: '#ffffff' }}>Book a Free Survey &amp; Fit</h3>
-                <p style={{ fontSize: '14px', color: '#9C9EA8', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Free no-obligation site surveys across Saltash, Cornwall, and Devon. Complete custom manufacture, fitting, and a 10-year guarantee.
-                </p>
-                <Link href="/home-improvements/" className="pd-btn pd-btn--secondary">
-                  Book a Free Home Survey →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section — left-aligned, no card, thin top-border rows */}
-        <section className="section">
-          <div className="section-inner">
-            <p className="pd-eyebrow">Frequently Asked Questions</p>
-            <h2 className="pd-specs-headline" style={{ marginBottom: '28px', maxWidth: 'none' }}>
-              Questions About {product.name}
-            </h2>
-            <ProductFAQSection faqs={product.faqs} />
+              guarantee={product.guarantee}
+              features={product.features || []}
+              colours={product.colours}
+              faqs={product.faqs}
+            />
           </div>
         </section>
 
         {/* Related Products Cross-Links */}
         {product.crossLinks && product.crossLinks.length > 0 && (
-          <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '24px var(--gutter)' }}>
-            <div className="section-inner" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+          <section className="pd-crosslinks-bar">
+            <div className="section-inner pd-crosslinks-inner">
               <span className="pd-eyebrow" style={{ margin: 0 }}>Explore Related Lines:</span>
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div className="pd-crosslinks-list">
                 {product.crossLinks.map((link) => (
-                  <Link key={link.href} href={link.href} style={{ color: '#ffffff', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                  <Link key={link.href} href={link.href} className="pd-crosslink-link">
                     {link.label} →
                   </Link>
                 ))}

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useId, useActionState } from 'react';
 import Link from 'next/link';
+import { Check, Camera } from 'lucide-react';
 import { PRODUCT_CATEGORIES } from '@/content/product-categories';
 import { submitSurveyRequest, type SurveyFormState } from './actions';
 import { BUSINESS } from '@/content/business';
@@ -136,7 +137,7 @@ export function SurveyForm() {
     const info = state.submittedData;
     return (
       <div className="survey-success-card" role="region" aria-label="Survey request confirmation">
-        <div className="survey-success-icon" aria-hidden="true">✓</div>
+        <div className="survey-success-icon" aria-hidden="true"><Check size={20} strokeWidth={2.5} /></div>
         <h2 className="survey-success-heading">Your survey request has been received</h2>
         <p className="survey-success-text">
           Thank you, <strong>{info?.fullName || fullName}</strong>. Our team will review your project details and contact you to agree a suitable date and time for our visit.
@@ -364,6 +365,7 @@ export function SurveyForm() {
                 name="addressLine1"
                 value={addressLine1}
                 onChange={(e) => setAddressLine1(e.target.value)}
+                autoComplete="address-line1"
                 className="survey-input"
                 placeholder="House number and street name"
                 required
@@ -381,6 +383,7 @@ export function SurveyForm() {
                   name="townCity"
                   value={townCity}
                   onChange={(e) => setTownCity(e.target.value)}
+                  autoComplete="address-level2"
                   className="survey-input"
                   placeholder="e.g. Saltash, Plymouth, Liskeard"
                   required
@@ -397,6 +400,7 @@ export function SurveyForm() {
                   name="postcode"
                   value={postcode}
                   onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+                  autoComplete="postal-code"
                   className="survey-input"
                   placeholder="e.g. PL12 6TW"
                   required
@@ -487,7 +491,7 @@ export function SurveyForm() {
                   onClick={() => fileInputRef.current?.click()}
                   className="survey-btn survey-btn--ghost"
                 >
-                  📷 Choose photos...
+                  <Camera size={16} strokeWidth={2} aria-hidden="true" /> Choose photos...
                 </button>
               </div>
 
@@ -552,6 +556,7 @@ export function SurveyForm() {
                 name="fullName"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
+                autoComplete="name"
                 className="survey-input"
                 placeholder="e.g. Sarah Jenkins"
                 required
@@ -569,6 +574,7 @@ export function SurveyForm() {
                   name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
                   className="survey-input"
                   placeholder="name@example.co.uk"
                   required
@@ -585,6 +591,7 @@ export function SurveyForm() {
                   name="phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
                   className="survey-input"
                   placeholder="01752 123456 or 07123 456789"
                   required

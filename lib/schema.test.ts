@@ -15,6 +15,8 @@ describe('buildLocalBusinessSchema', () => {
     expect(schema.address.postalCode).toBe('PL12 6TW');
     expect(schema.areaServed).toContain('Saltash');
     expect(schema.openingHoursSpecification[0].opens).toBe('08:00');
+    expect(schema.sameAs).toContain('https://www.facebook.com/profile.php?id=61590754130386');
+    expect(schema.sameAs).toContain('https://www.instagram.com/tamar.plastics.ltd/?hl=en');
   });
 });
 

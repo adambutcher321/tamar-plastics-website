@@ -4,71 +4,73 @@ export interface ColourStyle {
   boxShadow?: string;
 }
 
+/** Soft off-axis highlight so flat/solid finishes read as glossy injection-molded
+ * plastic rather than a flat colour swatch. Layered in front of the base colour. */
+const GLOSS = 'radial-gradient(circle at 34% 28%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 46%)';
+
+/** Fine diagonal grain layered over gradient-based wood/foil finishes so they read
+ * as a textured foil rather than a flat colour ramp. */
+const GRAIN =
+  'repeating-linear-gradient(115deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 4px)';
+
+function solid(hex: string, border: string): ColourStyle {
+  return { background: `${GLOSS}, ${hex}`, border };
+}
+
+function grained(gradient: string, border: string): ColourStyle {
+  return { background: `${GRAIN}, ${gradient}`, border };
+}
+
 export function getColourStyle(name: string): ColourStyle {
   const n = name.toLowerCase();
 
   if (n.includes('anthracite')) {
-    return { background: '#383E42', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#383E42', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('agate')) {
-    return { background: '#8B8C89', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#8B8C89', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('chartwell')) {
-    return { background: '#85A088', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#85A088', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('black ash') || n.includes('cast-iron black')) {
-    return {
-      background: 'linear-gradient(135deg, #2B2C30 0%, #151618 100%)',
-      border: '2px solid rgba(255,255,255,0.25)',
-    };
+    return grained('linear-gradient(135deg, #2B2C30 0%, #151618 100%)', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('black')) {
-    return { background: '#111215', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#111215', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('golden oak')) {
-    return {
-      background: 'linear-gradient(135deg, #B37836 0%, #7D4A1B 100%)',
-      border: '2px solid #C48B44',
-    };
+    return grained('linear-gradient(135deg, #B37836 0%, #7D4A1B 100%)', '2px solid #C48B44');
   }
   if (n.includes('irish oak')) {
-    return {
-      background: 'linear-gradient(135deg, #D49B55 0%, #9E6A2A 100%)',
-      border: '2px solid #E5AA64',
-    };
+    return grained('linear-gradient(135deg, #D49B55 0%, #9E6A2A 100%)', '2px solid #E5AA64');
   }
   if (n.includes('rosewood') || n.includes('chestnut')) {
-    return {
-      background: 'linear-gradient(135deg, #592C18 0%, #301408 100%)',
-      border: '2px solid #733E26',
-    };
+    return grained('linear-gradient(135deg, #592C18 0%, #301408 100%)', '2px solid #733E26');
   }
   if (n.includes('cedar')) {
-    return {
-      background: 'linear-gradient(135deg, #A85D32 0%, #6E3214 100%)',
-      border: '2px solid #B86E42',
-    };
+    return grained('linear-gradient(135deg, #A85D32 0%, #6E3214 100%)', '2px solid #B86E42');
   }
   if (n.includes('cream')) {
-    return { background: '#EFEBD9', border: '2px solid rgba(255,255,255,0.3)' };
+    return solid('#EFEBD9', '2px solid rgba(255,255,255,0.3)');
   }
   if (n.includes('smooth white') || n.includes('white diamond') || n.includes('white')) {
-    return { background: '#F5F7F6', border: '2px solid rgba(255,255,255,0.4)' };
+    return solid('#F5F7F6', '2px solid rgba(255,255,255,0.4)');
   }
   if (n.includes('slate')) {
-    return { background: '#474F54', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#474F54', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('terracotta')) {
-    return { background: '#B85636', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#B85636', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('charcoal')) {
-    return { background: '#2B2D31', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#2B2D31', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('sandstone')) {
-    return { background: '#D4C5A9', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#D4C5A9', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('coastline blue')) {
-    return { background: '#385A75', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#385A75', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('carrara marble') || n.includes('marble')) {
     return {
@@ -77,16 +79,13 @@ export function getColourStyle(name: string): ColourStyle {
     };
   }
   if (n.includes('concrete')) {
-    return { background: '#6E7377', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#6E7377', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('light oak') || n.includes('woodslat')) {
-    return {
-      background: 'linear-gradient(135deg, #C79A63 0%, #8F6531 100%)',
-      border: '2px solid #D8AA73',
-    };
+    return grained('linear-gradient(135deg, #C79A63 0%, #8F6531 100%)', '2px solid #D8AA73');
   }
   if (n.includes('brown')) {
-    return { background: '#4A3326', border: '2px solid rgba(255,255,255,0.25)' };
+    return solid('#4A3326', '2px solid rgba(255,255,255,0.25)');
   }
   if (n.includes('clear') || n.includes('translucent')) {
     return {
@@ -95,5 +94,5 @@ export function getColourStyle(name: string): ColourStyle {
     };
   }
 
-  return { background: '#7A7F85', border: '2px solid rgba(255,255,255,0.25)' };
+  return solid('#7A7F85', '2px solid rgba(255,255,255,0.25)');
 }

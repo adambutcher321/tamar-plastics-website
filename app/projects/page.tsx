@@ -31,7 +31,7 @@ export default function ProjectsGalleryPage() {
             <h1 className="h2" style={{ maxWidth: '18ch', marginBottom: '16px' }}>
               Our Projects
             </h1>
-            <p className="hero-para" style={{ maxWidth: '48ch' }}>
+            <p className="hero-para" style={{ maxWidth: '48ch', textAlign: 'left' }}>
               A look at recent completed jobs — real installations for real customers across
               Saltash, Cornwall, and Devon.
             </p>
