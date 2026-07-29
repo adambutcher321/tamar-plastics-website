@@ -1,4 +1,4 @@
-import type { CrossLink } from './content-types';
+import type { CrossLink } from '../content-types';
 
 export interface CaseStudy {
   slug: string;
